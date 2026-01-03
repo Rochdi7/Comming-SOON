@@ -64,12 +64,4 @@ Specific business details are intentionally kept private at this stage.
 ---
 
 ## ⚙️ Installation (Development)
-
-```bash
-git clone https://github.com/Rochdi7/Rental-Car.git
-cd RentalCar
-composer install
-copy .env.example .env
-php artisan key:generate
-php artisan migrate
-php artisan serve
+soon
