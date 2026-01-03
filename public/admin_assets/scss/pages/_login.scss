@@ -1,0 +1,146 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
+.login-icon {
+    width: 40px;
+    height: 40px;
+    @include mixins.rounded(8px);
+}
+.login-bg {
+    .login-bg-01 {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 261px;
+        height: 399px;
+        z-index: -1;
+        @include mixins.respond-below(lg) {
+            height: 200px;
+            width: 180px;
+        }
+    }
+    .login-bg-02 {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        width: 300px;
+        height: 420px;
+        z-index: -1;
+        @include mixins.respond-below(lg) {
+            height: 200px;
+            width: 180px;
+        }
+    }
+}
+.authentication-card {
+    position: relative;
+    z-index: 1;
+    &::before {
+        content: "";
+        background: url('../img/bg/login-bg-03.png');
+        width: 100%;
+        height: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-position: center;
+        z-index: -1;
+    }
+    &::after {
+        content: "";
+        background: url('../img/bg/login-bg-04.png');
+        background-position: center;
+        width: 100%;
+        height: 100px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+    }
+    .card-body {
+        padding: 40px;
+        @include mixins.respond-below(lg) {
+            padding: 20px;
+        }
+    }
+}
+.error-images img {
+    max-width: 500px;
+}
+
+.password-strength span{
+	width: 100%;
+    height: 5px;
+    background: #e3e3e3;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+.poor-active span.active#poor,
+.poor-active span.active#poors {
+  background: variables.$danger;
+}
+.avg-active span.active#poor,
+.avg-active span.active#weak,
+.avg-active span.active#poors,
+.avg-active span.active#weaks {
+  background: variables.$warning;
+}
+.strong-active span.active#poor,
+.strong-active span.active#weak,
+.strong-active span.active#strong,
+.strong-active span.active#poors,
+.strong-active span.active#weaks,
+.strong-active span.active#strongs {
+  background: variables.$info;
+}
+.heavy-active span.active#poor,
+.heavy-active span.active#weak,
+.heavy-active span.active#strong,
+.heavy-active span.active#heavy,
+.heavy-active span.active#poors,
+.heavy-active span.active#weaks,
+.heavy-active span.active#strongs,
+.heavy-active span.active#heavys {
+  background: variables.$success;
+}
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+.under-maintenance{
+  position: relative;
+}
+.maintenance-overlay-image{
+  .overlay-image-bottom{
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+  }
+  .overlay-image-top{
+    position: absolute;
+    top: -80px;
+    right: 2%;
+    z-index: -1;
+  }
+}
+.coming-soon{
+  .comming-soon-pg{
+    .counts-card{
+      width: 50px;
+      height: 50px;
+    }
+    
+  }
+}
+.otp-input {
+  input {
+    width: 60px;
+    height: 60px;
+    margin-right: 16px;
+    text-align: center;
+    font-size: variables.$font-size-24;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

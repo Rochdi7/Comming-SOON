@@ -1,0 +1,43 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
+.connect-line {
+    height: 2px;
+    width: 37px;
+    background-color: variables.$info;
+    position: relative;
+    &::before,
+    &::after {
+        content: "";
+        width: 5px; 
+        height: 5px;
+        background-color: variables.$info;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        @include mixins.transform(translateY(-50%));
+    }
+    &::before {
+        left: 0;
+    }
+    &::after {
+        right: 0;
+    }
+}
+.map-wrap {
+    #map {
+        height: 350px;
+    }
+    &.tracking {
+        #map {
+            height: calc(100vh - 155px);
+            @include mixins.rounded(30px);
+        }
+    }
+}
+.line-icon {
+    width: 5px;
+    height: 20px;
+    @include mixins.rounded(5px);
+    display: block;
+}

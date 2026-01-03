@@ -1,0 +1,220 @@
+@use "../base/colors";
+@use "../base/typography";
+@use "../utils/mixins";
+@use "../utils/variables";
+
+/*-----------------
+    12. Login
+-----------------------*/
+
+.login-body {
+    margin: auto;
+    .log-header {
+        background: #FFFFFF;
+        padding: 22px;
+        box-shadow: 0px 4px 24px rgba(225, 225, 225, 0.25);
+    }
+}
+.logo-dark{
+	margin: auto;
+    display: block;
+}
+.login-wrapper {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    @include mixins.margin-padding(0, 100px 0);
+    background: colors.$cylindrical;
+        @include mixins.respond-below(custom991) {
+            @include mixins.margin-padding(0, 50px 0);
+        }    
+        @include mixins.respond-below(custom575) {
+            @include mixins.margin-padding(0, 0);
+        }   
+    .loginbox {
+        background-color: colors.$white;
+        box-shadow: 0px 4px 24px rgba(225, 225, 225, 0.25);
+        display: flex;
+        margin: auto;
+        max-width: 635px;
+        width: 100%;
+        @include mixins.rounded(5px);
+        .login-left {
+            align-items: center;
+            background: linear-gradient(180deg, #8BC34A, #00bcd4);
+            flex-direction: column;
+             @extend %justify-content-center;
+            padding: 80px;
+            width: 635px;
+            display: flex;
+            @include mixins.rounded(6px 0 0 6px);
+        }
+        .login-auth {
+            @extend %display-flex-center;
+             @extend %justify-content-center;
+            padding: 20px;
+            width: 635px;
+            @include mixins.respond-below(custom320) {             
+                width: 100%;
+            }
+            .login-auth-wrap {
+                max-width: 100%;
+                flex: 0 0 100%;
+                .sign-group {
+                    @extend %display-flex-center;
+                    span {
+                        i {
+                            line-height: 0;
+                            margin-right: 6px;
+                        }
+                    }
+                    a {
+                        font-size: typography.$font__size__14;
+                        @include mixins.margin-padding(0 0 40px, 0);
+                        &:hover {
+                            color: colors.$primarycolor;
+                        }
+                    }
+                }
+                .input-block {
+                    label {
+                        @include mixins.margin-padding(0 0 10px 0, null);
+                    } 
+                }
+                h1 {
+                    @include mixins.margin-padding(0 0 10px, null);
+                    font-size: 28px;
+                    font-weight: typography.$bold;
+                }
+            }
+            .forgotpass a {
+                color: colors.$gray__lightdark;
+                &:hover {
+                    color: colors.$dark__blues;
+                    text-decoration: underline;
+                }
+            }
+            .dont-have {
+                color: colors.$gray__lightdark;
+                margin-top: 30px;
+                a {
+                    color: colors.$light_grass;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .social-login {
+                text-align: center;
+
+                span {
+                    color: colors.$gray__lightdark;
+                    margin-right: 8px;
+                    display: inline-flex;
+                }
+                a {
+                    background: colors.$light__grayish;
+                    border: 1px solid colors.$light__grayish;
+                    box-shadow: inset 0 0 0 0 colors.$white;
+                    text-align: center;
+                    @include mixins.margin-padding(0 0 15px, 10px 0);
+                    font-size: typography.$font__size__16;
+                    line-height: 20px;
+                    color: colors.$graybackblue;
+                    @include mixins.rounded(4px); 
+                    &:hover {
+                        background-color: colors.$white;
+                        border-color: colors.$light__grayish;
+                        color: colors.$grayish__blue;
+                        box-shadow: inset 0 50px 0 0 colors.$white;
+                    }
+                    &.facebook {
+                        background-color: #4b75bd;
+                    }
+                    &.google {
+                        background-color: #fe5240;
+                    }
+                }
+            }
+        }
+        .account-subtitle {
+            color: colors.$gray__lightdark;
+            @include mixins.margin-padding(0 0 30px, null);
+        }
+        .login-or {
+            color: colors.$gray__lightdark;
+            @include mixins.margin-padding(20px auto 20px, 20px 0 20px);
+            position: relative;
+            max-width: 385px;
+        }
+        .or-line {
+            background-color: colors.$cloud__grays;
+            height: 1px;
+            margin-bottom: 0;
+            margin-top: 0;
+            display: block;
+            @include mixins.respond-below(custom575) {
+                display: none;
+            }
+        }
+        .span-or {
+            background-color: colors.$white;
+            display: block;
+            left: 15%;
+            position: absolute;
+            text-align: center;
+            top: 8px;
+            width: 280px;   
+            @include mixins.respond-below(custom575) {
+                left: 0;
+            }         
+        } 
+        .span-or-log {
+            background-color: colors.$white;
+            color: colors.$gray__lightdark;
+            display: block;
+            left: 25%;
+            position: absolute;
+            text-align: center;
+            top: 6px;
+            width: 200px;   
+            @include mixins.respond-below(custom575) {
+                left: 0;
+            }         
+        } 
+        .lock-user {
+            margin-bottom: 20px;
+            text-align: center;
+            img {
+                margin-bottom: 15px;
+                width: 100px;
+            }
+        }
+        .toggle-password,.toggle-password-two {
+            position: absolute;
+            right: 17px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: colors.$gray__lightdark;
+            cursor: pointer;
+            &.fa-eye {
+                margin-right: 1px;
+                font-weight: typography.$medium;
+            }
+        }
+    }
+}     
+.log-footer {
+    background: colors.$cylindrical;    
+    .copyright {
+        border-top: 0;
+        @include mixins.margin-padding(null, 28px 0);
+        text-align: center;
+        .copyright-text {
+            p {
+                font-size: typography.$font__size__14;
+                color: colors.$gray;
+            }
+        }
+    }
+}  

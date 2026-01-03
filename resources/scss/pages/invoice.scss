@@ -1,0 +1,221 @@
+@use "../base/colors";
+@use "../base/typography";
+@use "../utils/mixins";
+@use "../utils/variables";
+
+/*-----------------
+    19. Invoice
+-----------------------*/
+
+.invoice-section {
+    position: relative;
+    @include mixins.margin-padding(null, 80px 0);
+    @include mixins.respond-below(custom991) {
+        @include mixins.margin-padding(null, 60px 0);
+    }
+    @include mixins.respond-below(custom767) {
+        @include mixins.margin-padding(null, 50px 0);
+    }
+    .card-body {
+        background: colors.$white;
+        box-shadow: 0px 4px 24px rgba(225, 225, 225, 0.25);
+        border-radius: 14px;
+        padding: 40px;
+        max-width: 1076px;
+        margin: auto;
+            @include mixins.respond-below(custom575) {
+                @include mixins.margin-padding(null, 20px);
+            }
+    }
+    .invoice-item {     
+        @include mixins.margin-padding(0 0 22px, null); 
+        .invoice-info {              
+            text-align: right; 
+                @include mixins.respond-below(custom575) {
+                    @include mixins.margin-padding(10px 0 0, null);
+                    text-align: left; 
+                }           
+            h1 {
+                font-weight: 700;
+                font-size: typography.$font__size__32;
+                color: colors.$gray;
+                @include mixins.margin-padding(0 0 10px, null);
+                @include mixins.respond-below(custom1199) {
+                    font-size: typography.$font__size__22 !important;
+                }
+            }
+            h6 {
+                font-weight: typography.$medium;
+        font-size: typography.$font__size__14;
+                color: colors.$sandstone;
+            }
+        }
+    }
+    .invoice-item-bill {
+        position: relative;
+        background: colors.$goose-gray;
+        border-radius: 10px;
+        padding: 30px;
+        @include mixins.margin-padding(0 0 37px, null);
+            @include mixins.respond-below(custom768) {
+                @include mixins.margin-padding(null, 15px);
+            } 
+        &:before {
+            content: '';
+            background: url(../img/bg/invoice.png) no-repeat;
+            position: absolute;
+            top: -45px;
+            left: -45px;
+            width: 179px;
+            height: 180px;
+            background-size: cover;
+        }
+        ul {
+            position: relative;
+            display: flex;
+            flex-flow: row wrap;
+            padding-left: 0;
+            list-style: none;
+            margin: 0;
+            li {
+                -ms-flex: 33.33%;
+                flex: 33.33%;
+                max-width: 33.33%;
+                border-left: 1px solid colors.$cylindrical;
+                display: flex;
+                justify-content: center;                 
+                    @include mixins.respond-below(custom575) {
+                        -ms-flex: 100%;
+                        flex: 100%;
+                        max-width: 100%;
+                        border-left: 0;
+                        padding-left: 0;
+                        justify-content: start;    
+                        @include mixins.margin-padding(0 0 15px, null);
+                            &:last-child {
+                                @include mixins.margin-padding(0, null);
+                            }
+                    }
+                &:first-child {                    
+                    border-left: 0;
+                    @extend %jusflex-start
+                }
+                .invoice-info {
+                    h6 {
+                        font-weight: 500;
+                        font-size: 18px;
+                        color: colors.$white;
+                        @include mixins.margin-padding(0 0 15px, null);
+                    }
+                    p {
+                        font-size: 14px;
+                        color: colors.$white;
+                        @include mixins.margin-padding(0 0 15px, null);
+                    }
+                }  
+            }
+        }
+    }
+    .payment-details {
+        margin-top: 40px;
+        max-width: 950px;
+        .invoice-terms {
+                @include mixins.respond-below(custom575) {
+                    @include mixins.margin-padding(0 0 20px, null);
+                }
+            h6 {
+                font-weight: typography.$medium;
+                font-size: typography.$font__size__18;
+                color: colors.$gray;
+                margin-bottom: 18px;
+            }            
+            .invocie-note {
+                border: 2px dashed colors.$grey;
+                border-radius: 4px;
+                max-width: 266px;
+                padding: 20px;
+                h6 {
+                    font-weight: 500;
+                    font-size: 18px;
+                    color: colors.$gray__dark;
+                    @include mixins.margin-padding(0 0 20px, null);
+                }
+                p {
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: colors.$gray;
+                }
+            }
+        }
+    }
+    .invoice-total {
+        background: colors.$light__grayish;
+        border: 2px dashed colors.$alice__blue;
+        @include mixins.margin-padding(33px 0 33px, 10px);
+        text-align: right;
+        h4 {
+            font-weight: typography.$medium;
+            font-size: typography.$font__size__20;
+            color: colors.$goose-gray;
+            @include mixins.respond-below(custom767) {
+                font-size: typography.$font__size__18;
+            }
+            span {
+                padding-left: 88px;
+                    @include mixins.respond-below(custom575) {
+                        @include mixins.margin-padding(null, 0);
+                    }
+            }
+        }
+    }
+    .invoice-total-box {
+        .invoice-total-inner {
+            p {
+                font-weight: typography.$medium;
+                font-size: typography.$font__size__14;
+                color: colors.$gray__lightdark;
+                margin-bottom: 25px;
+                span {
+                    float: right;
+                    font-weight: 700;
+                    font-size: 15px;
+                    color: colors.$gray;
+                }
+            }
+        }
+    }
+    .invoice-note-footer {   
+        .invocie-note {
+            @include mixins.margin-padding(0 0 20px, null);
+            h6 {
+                font-weight: typography.$medium;
+                font-size: typography.$font__size__18;
+                color: colors.$gray__dark;
+                @include mixins.margin-padding(0 0 13px, null);
+            }
+            p {
+                font-weight: typography.$medium;
+                font-size: typography.$font__size__14;
+                color: colors.$gray;
+            }
+        }     
+        .invoice-sign {
+            float: right;
+                @include mixins.respond-below(custom575) {
+                    float: left;
+                }
+            img {
+                @include mixins.margin-padding(0 0 19px, null);
+                @include mixins.respond-below(custom991) {
+                    @include mixins.margin-padding(0, null);
+                }
+            }
+            span {
+                font-weight: typography.$medium;
+                font-size: typography.$font__size__18;
+                color: colors.$goose-gray;
+                text-align: center;
+            }
+        }
+    }
+}

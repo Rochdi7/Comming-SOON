@@ -1,0 +1,117 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
+/* Blogs */
+.blogs-cover {
+    .blog-item-1 {
+        border-radius: 5px;
+        .blog-img {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px 5px 0 0;
+            img {
+                transition: 0.5s;
+            }
+            &:hover {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+
+            .edit-delete-btns {
+                position: absolute;
+                top: 10px;
+                left: 15px;
+                right: 15px;
+
+                .blog-edit {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 4px;
+                    border-radius: 30px;
+                    background: variables.$white;
+                    font-size: variables.$font-size-16;
+                }
+                .blog-delete {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 4px;
+                    border-radius: 30px;
+                    background: variables.$white;
+                    font-size: variables.$font-size-16;
+                }
+            }
+        }
+
+        .blog-content {
+            padding: 20px;
+            h5 {
+                font-weight: variables.$font-weight-bold;
+                line-height: 27px;
+            }
+        }
+    }
+    .load-btn {
+        padding: 6px 10px;
+        background: variables.$dark;
+        color: variables.$white;
+        font-weight: variables.$font-weight-medium;
+        border-radius: 5px;
+        &:hover {
+            background: variables.$primary;
+        }
+    }
+}
+/* /Blogs */
+
+/* Add Blog: */
+.add-blog-content {
+    padding: 0 92px;
+    @include mixins.respond-below(xl) {
+        padding: 0 62px;
+    }
+    @include mixins.respond-below(lg) {
+        padding: 0 42px;
+    }
+    @include mixins.respond-below(md) {
+        padding: 0;
+    }
+
+    .note-modal-content {
+        padding: 20px;
+    }
+}
+/* /Add Blog: */
+
+/* Blog Details: */
+.blog-details {
+    padding: 20px;
+    border-radius: 5px;
+    background: variables.$white;
+
+    h3 {
+        margin: 20px 0;
+    }
+    .blog-details-1 {
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    p {
+        line-height: 21px;
+    }
+    .badge.badge-blog-details {
+        color: variables.$gray-900;
+        border: 1px solid variables.$gray-100;
+        background: variables.$light-transparent;
+        &:hover {
+            background: variables.$primary;
+            color: variables.$white;
+        }
+    }
+    h5 {
+        margin: 20px 0 16px 0;
+    }
+}
+/* /Blog Details: */

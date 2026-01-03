@@ -1,0 +1,243 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
+.add-wizard {
+    fieldset {
+        display: none;
+        &#first-field {
+            display: block;
+        }
+    }
+}
+.car-steps {
+    .nav {
+        margin-bottom: 20px;
+    }
+    li {
+        margin-right: 0;
+        .nav-link {
+            border: 1px solid variables.$border-color;
+            @include mixins.rounded(5px);
+            font-weight: variables.$font-weight-medium;
+            color: variables.$gray-900;
+            padding: 6px 12px;
+            i {
+                color: variables.$gray-500;
+            }
+        }
+        &.active {
+            .nav-link {
+                background: variables.$secondary-transparent;
+                color: variables.$secondary;
+                i {
+                    color: variables.$secondary;
+                }
+            }
+        }
+        &.activated {
+            .nav-link {
+                background: variables.$dark;
+                color: variables.$white;
+                position: relative;
+                &::before {
+                    content: "\ea5e";
+                    font-family: "tabler-icons" !important;
+                    position: absolute;
+                    top: 50%;
+                    left: 12px;
+                    @include mixins.transform(translateY(-50%));
+                    background: variables.$success;
+                    color: variables.$white;
+                    width: 14px;
+                    height: 14px;
+                    @include mixins.rounded(50%);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: variables.$font-size-12;
+                }
+            }
+        }
+    }
+}
+.upload-img-trash {
+    &.trash-end {
+        bottom: 0;
+        right: 10px;
+        top: auto;
+        color: variables.$danger;
+        border: 1px solid variables.$border-color;
+        background: variables.$white;
+        &:hover {
+            background: variables.$danger;
+            border-color: variables.$danger;
+            color: variables.$white;
+        }
+    }
+}
+.color-icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    @include mixins.rounded(5px);
+    margin-right: 4px;
+}
+.frames {
+    img {
+        @include mixins.rounded(50%);
+        object-fit: cover;
+    }
+}
+.empty-data {
+    padding: 20px;
+    display: none;
+}
+.icon-list {
+    a {
+        width: 24px;
+        height: 24px;
+        @include mixins.rounded(30px);
+        background: variables.$light;
+        border-color: variables.$default-border;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.edit-icon {
+            &:hover {
+                background: variables.$primary;
+                border-color: variables.$primary;
+                color: variables.$white;
+            }
+        }
+        &.trash-icon {
+            &:hover {
+                background: variables.$danger;
+                color: variables.$white;
+            }
+        }
+    }
+}
+.service-icon {
+    width: 40px;
+    height: 40px;
+    @include mixins.rounded(50%);
+    font-size: variables.$font-size-24;
+    color: variables.$white;
+    @include mixins.rounded(5px);
+    flex-shrink: 0;
+}
+.extra-service {
+    .link-purple {
+        margin-bottom: 20px;
+    }
+    .form-checkbox {
+        padding: 20px 20px 20px 40px;
+        margin-bottom: 20px;
+        &.active {
+            border-color: variables.$primary-400;
+        }
+    }
+}
+.document-upload {
+    position: relative;
+    border: 1px dashed variables.$border-color;
+    padding: 40px;
+    input{
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+    }  
+}
+.progress-wrap {
+    min-width: 147px;
+}
+.uploaded-img {
+    position: relative;
+    img {
+        width: 48px;
+        height: 48px;
+        @include mixins.rounded(50%);
+    }
+    .trash-icon {
+        width: 20px;
+        height: 20px;
+        background: variables.$white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include mixins.rounded(50%);
+        color: variables.$gray-900;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        @include mixins.transform(translateX(-50%));
+        opacity: 0;
+        @include mixins.transition((all 0.5s));
+    }
+    &:hover {
+        .trash-icon {
+            opacity: 1;
+            top: 50%;
+            @include mixins.transform(translate(-50%, -50%));
+        }
+    }
+}
+.uploaded-video {
+    position: relative;
+    @include mixins.rounded(5px);
+    img {
+        @include mixins.rounded(5px);
+        width: 100%;
+        object-fit: cover;
+    }
+    .play-icon {
+        width: 32px;
+        height: 32px;
+        background: variables.$white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include mixins.rounded(50%);
+        color: variables.$gray-900;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include mixins.transform(translate(-50%, -50%));
+    }
+}
+.summary-wrap {
+    & > div {
+        margin-bottom: 20px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+.gallery-wrap {
+    img {
+        width: 80px;
+        height: 80px;
+        @include mixins.rounded(10px);
+    }
+}
+.delivery-add {
+    a {
+        .check-active {
+            display: none;
+        }
+        &.active {
+            background: variables.$success;
+            color: variables.$white;
+            .check-active {
+                display: block;
+            }
+            .plus-active {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,85 @@
+/*
+Author       : Dreamguys
+Template Name: Dreams Rent - Bootstrap Template
+Version      : 1.0
+*/
+
+/*============================
+ [Table of CSS]
+
+1. Reset
+2. Typography
+3. General
+4. Grid
+5. Buttons
+6. Header
+7. Footer
+8. Breadcrumb
+9. Select
+10. Table
+11. Home
+12. Login
+13. Common
+14. Faq
+15. Pricing
+16. Gallery
+17. Our Team
+18. Contact
+19. Invoice
+20. Blog
+21. Testimonials
+22. About Us
+23. Product Details
+24. Products
+25. Users
+
+========================================*/
+
+
+// UTILS
+@use "utils/variables";
+@use "utils/mixins";
+
+//  BASE
+@use "base/reset";
+@use "base/typography";
+@use "base/colors"; 
+@use "base/base";
+
+// COMPONENTS
+@use "components/button";
+@use "components/background";
+
+
+// LAYOUT 
+@use "layout/content";
+@use "layout/header";
+@use "layout/header-2";
+@use "layout/header-3";
+@use "layout/footer";
+@use "layout/breadcrumb";
+@use "layout/select";
+@use "layout/table";
+@use "layout/footer-2";
+
+// PAGES
+@use "pages/home";
+@use "pages/home-2";
+@use "pages/home-3";
+@use "pages/home-4";
+@use "pages/login";
+@use "pages/common";
+@use "pages/faq";
+@use "pages/pricing";
+@use "pages/gallery";
+@use "pages/our-team";
+@use "pages/contact";
+@use "pages/invoice";
+@use "pages/blog";
+@use "pages/testimonial";
+@use "pages/about-us";
+@use "pages/detail-page";
+@use "pages/products";
+@use "pages/users";
+@use "pages/booking";
+@use "pages/booking-calendar";

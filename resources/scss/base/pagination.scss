@@ -1,0 +1,72 @@
+/*-----------------
+    4. Pagination
+-----------------------*/
+
+.pagination {
+    .pagination {
+        margin-bottom: 25px;
+        width: 100%;
+        text-align: center;                    
+        .previtem {
+            @include respond-below(custom575) {
+                display: none;
+            } 
+            a {
+                color: $_gray;
+                font-size: $_font__size__14;
+                min-width: 150px;
+                padding: 15px 38px;
+                border-radius: 10px;
+                i {
+                    margin-right: 8px;
+                }
+            }  
+        } 
+        .nextlink {
+            @include respond-below(custom575) {
+                display: none;
+            } 
+            a {
+                color: $_gray;
+                font-size: $_font__size__14;
+                min-width: 150px;
+                padding: 15px 38px;
+                border-radius: 10px;
+                i {
+                    margin-left: 8px;
+                }
+            }  
+        } 
+    }
+    .pagination-center {
+        justify-content: $_center;
+        display: flex;
+        .page-group {
+            .page-item {
+                a {
+                    border: 1px solid $_light__gray;
+                    background: $_white;
+                    border-radius: 10px;
+                    padding: 10px 19px;
+                    margin: 0 12px 0 0;
+                    color: $_gray;
+                    width: 46px;
+                    height: 46px;
+                    display: $_flex;
+                    justify-content: $_center;
+                    align-items: $_center;                        
+                }
+                .active {
+                    background-color: $_dark__blues;
+                    color: $_white;
+                }                    
+            }
+            ul {
+                display: $_flex;
+                align-items: $_center;
+                justify-content: $_center;
+                margin: 0 0 0 10px;
+            }
+        }            
+    } 
+}

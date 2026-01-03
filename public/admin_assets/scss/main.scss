@@ -1,0 +1,74 @@
+/****** Utils ******/
+@use "utils/variables";
+@use "utils/mixins";
+
+/******* Base *******/
+@use "base/base";
+@use "base/background";
+
+/******* Components ******/
+@use "components/avatar";
+@use "components/boostrap";
+@use "components/button";
+@use "components/badge";
+@use "components/border";
+@use "components/calendar";
+@use "components/chart";
+@use "components/call";
+@use "components/dropdown";
+@use "components/email";
+@use "components/file-manager";
+@use "components/file-upload";
+@use "components/icons";
+@use "components/progress";
+@use "components/pagination";
+@use "components/font";
+@use "components/typography";
+@use "components/alerts";
+@use "components/popovers";
+@use "components/forms";
+@use "components/notes";
+@use "components/todo";
+@use "components/tables";
+@use "components/accordion";
+@use "components/breadcrumb";
+@use "components/cards";
+@use "components/tooltips";
+@use "components/navs-tabs";
+@use "components/ribbon";
+@use "components/popup";
+@use "components/grid";
+@use "components/timeline";
+@use "components/sweetalert";
+@use "components/incoming-call";
+
+/****** Layout ******/
+@use "layout/common";
+@use "layout/content";
+@use "layout/header";
+@use "layout/sidebar";
+@use "layout/notification";
+@use "layout/theme";
+
+/******* Vendors ******/
+@use "vendors/select2";
+@use "vendors/datatables";
+@use "vendors/rangepicker-plugin";
+
+/******* Pages ******/
+@use "pages/login";
+@use "pages/brands";
+@use "pages/reservation";
+@use "pages/car";
+@use "pages/ui-pages";
+@use "pages/customer";
+@use "pages/pages";
+@use "pages/quotations";
+@use "pages/blogs";
+@use "pages/dashboard";
+@use "pages/coupons";
+@use "pages/rental-report";
+@use "pages/invoice";
+@use "pages/settings";
+@use "pages/chat";
+@use "pages/circle-progress";

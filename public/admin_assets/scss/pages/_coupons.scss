@@ -1,0 +1,20 @@
+@use "../utils/variables";
+
+.coupons-tabs {
+    .nav {
+        .nav-item {
+            .nav-link {
+                background: variables.$white;
+                color: variables.$gray-900;
+                border-block-end: 3px solid transparent;
+                &.active {
+                    background-color: variables.$primary-transparent;
+                    border-block-end: 3px solid variables.$primary;
+                    color: variables.$primary;
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+            }
+        }
+    }
+}

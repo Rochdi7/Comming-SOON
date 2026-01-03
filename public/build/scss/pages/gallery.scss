@@ -1,0 +1,29 @@
+@use "../base/colors";
+@use "../utils/mixins";
+@use "../utils/variables";
+
+/*-----------------
+    16. Gallery
+-----------------------*/
+
+.gallery-section {
+    @include mixins.margin-padding(null, 80px 0 56px 0);
+    @include mixins.respond-below(custom991) {
+        @include mixins.margin-padding(null, 50px 0 26px 0);
+    }
+    .gallery-widget {
+        position: relative;
+        margin: 0 0 25px 0;
+        -webkit-transition: all 0.7s;
+        -moz-transition: all 0.7s;
+        -o-transition: all 0.7s;
+        transition: all 0.7s;
+        img {
+            border-radius: 4px;
+        }
+    }
+}    
+.fancybox-image {
+    border-radius: 10px;
+    border: 1px solid colors.$white;
+}

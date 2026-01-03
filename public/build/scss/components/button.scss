@@ -1,0 +1,234 @@
+@use "../base/colors";
+@use "../base/typography";
+@use "../utils/mixins";
+@use "../utils/variables";
+
+/*-----------------
+    5. Buttons
+-----------------------*/
+
+.btn {
+    position: relative;
+    text-transform: initial;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    &:hover {
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+}
+.btn-view {
+    font-weight: typography.$medium;
+    font-size: typography.$font__size__16;
+    color: colors.$goose-gray;
+    border: 2px solid colors.$goose-gray;
+    background-color: colors.$white;
+    box-shadow: inset 0 0 0 0 colors.$white;
+    border-radius: 5px;
+    line-height: 0;
+    @include mixins.margin-padding(0, 10px 17px);
+    &:hover {
+        background-color: colors.$primarycolor;
+        border: 2px solid colors.$warningcolor;
+        color: colors.$white;
+        box-shadow: inset 0 50px 0 0 colors.$warningcolor;
+    }
+    @include mixins.respond-below(custom991){
+        @include mixins.margin-padding(0, 8px 12px);
+		font-size:typography.$font__size__14;
+	}
+}
+
+.btn-white {
+    background-color: colors.$white;
+    border-color: colors.$light__grayish;
+    color: colors.$primarycolor;
+    box-shadow: inset 0 0 0 0 colors.$white;
+    &:hover {
+        background-color: colors.$white;
+        border-color: colors.$white;
+        color: colors.$white;
+        box-shadow: inset 0 50px 0 0 colors.$primarycolor;
+    }
+}
+.btn-white-outline {
+    background-color: colors.$white;
+    border-color: colors.$light__grayish;
+    color: colors.$grayish__blue;
+    &:hover {
+        background-color: colors.$white;
+        border-color: colors.$light__grayish;
+        color: colors.$grayish__blue;
+    }
+}
+.btn-primary {
+    background-color: colors.$primarycolor;
+    border: 1px solid colors.$primarycolor;
+    box-shadow: inset 0 0 0 0 colors.$white;
+    &:hover {
+        background-color: colors.$white;
+        border-color: colors.$primarycolor;
+        color: colors.$primarycolor;
+        box-shadow: inset 0 50px 0 0 colors.$white;
+    }
+}
+.btn-subscribe {
+    background-color: colors.$primarycolor;
+    border: 1px solid colors.$primarycolor;
+    box-shadow: inset 0 0 0 0 colors.$white;
+    &:hover {
+        i {
+            color: colors.$primarycolor !important;
+            -webkit-transition: 0.5s;
+            -ms-transition: 0.5s;
+            transition: 0.5s;
+        }
+        background-color: colors.$white;
+        border-color: colors.$primarycolor;
+        color: colors.$primarycolor;
+        box-shadow: inset 0 50px 0 0 colors.$white;
+    }
+}
+.submit-review {
+    @include mixins.margin-padding(null, 12px 20px);
+}
+.btn-size {
+    font-weight: typography.$semibold;
+    font-size: typography.$font__size__16;
+    @include mixins.margin-padding(null, 12px);
+}
+.btn-outline-light {
+    color: colors.$white;
+    background-color: colors.$goose-gray;
+    border: 1px solid colors.$goose-gray;
+    box-shadow: inset 0 0 0 0 colors.$white;
+    &:hover {
+        background-color: colors.$white;
+        border-color: colors.$light__grayish;
+        color: colors.$grayish__blue;
+        box-shadow: inset 0 50px 0 0 colors.$white;
+    }
+}
+.btn-gray {
+    background-color: colors.$white__smoke;
+    border: 1px solid colors.$white__smoke;
+    box-shadow: inset 0 0 0 0 colors.$white;
+    &:hover {
+        background-color: colors.$white;
+        border-color: colors.$white__smoke;
+        color: colors.$gray15;
+        box-shadow: inset 0 50px 0 0 colors.$white;
+    }
+}
+.btn-gray-outline {
+    background-color: colors.$white;
+    border: 1px solid colors.$white__smoke;
+    box-shadow: inset 0 0 0 0 colors.$white;
+    &:hover {
+        background-color: colors.$white__smoke;
+        border-color: colors.$white;
+        color: colors.$gray15;
+        box-shadow: inset 0 50px 0 0 colors.$white;
+    }
+}
+.btn-outline-primary {
+    color: colors.$primarycolor;
+    border-color: colors.$primarycolor;
+    &:hover {
+        background-color: colors.$primarycolor;
+        border-color: colors.$primarycolor;
+    }
+}
+.btn-check:focus+.btn-primary, 
+.btn-primary:focus {
+    box-shadow: none !important;
+}
+.btn{
+    &:focus{
+        box-shadow: none !important; 
+    }
+    &.btn-greys{
+        background: colors.$white__smoke;
+        color: colors.$secondarycolor;
+        font-size: typography.$font__size__13;
+        @include mixins.margin-padding(null, 8px 16px);
+        font-weight: typography.$semibold;
+    }
+}
+.cancel {
+    background-color: colors.$white;
+    border: 1px solid colors.$violet__dark;
+    box-shadow: inset 0 0 0 0 colors.$violet__dark;
+    color: colors.$violet__dark;
+    &:hover {
+        background-color: colors.$white;
+        border-color: colors.$violet__dark;
+        color: colors.$violet__dark;
+        box-shadow: inset 0 50px 0 0 colors.$white;
+    }
+}
+.contact-btn {
+    background-color: colors.$goose-gray;
+    border: 1px solid colors.$goose-gray;                
+    box-shadow: inset 0 0 0 colors.$white;
+    color: colors.$white;                
+    border-radius: 5px;
+    font-weight: typography.$bold;
+    font-size: typography.$font__size__16;
+    @include mixins.margin-padding(null, 12px 15px);
+    text-align: center;
+    @extend %animation-effect;
+    &:hover {
+        background-color: colors.$white;
+        border: 1px solid colors.$goose-gray;
+        box-shadow: inset 0 70px 0 0 colors.$white;
+        color: colors.$goose-gray;
+        @extend %animation-effect;
+    }
+}
+.btn-secondary {
+    border: 1px solid colors.$gray;
+    background: colors.$gray;
+    color: colors.$white;
+    box-shadow: inset 0 0 0 colors.$white;
+    &:hover {
+        background-color: colors.$white;
+        border: 1px solid colors.$gray;
+        box-shadow: inset 0 70px 0 0 colors.$white;
+        color: colors.$gray;
+    }
+}
+.fa-facebook {
+    background: #3080F8;
+    color: colors.$white;
+}  
+.fa-twitter {
+    background: #35B6FF;
+    color: colors.$white;
+} 
+.fa-instagram {
+    background: #FF2D20;
+    color: colors.$white;
+}
+.fa-behance {
+    background: #0066FF;
+    color: colors.$white;
+}
+.fa-linkedin {
+    background: #0066FF;
+    color: colors.$white;
+}
+.btn-primary {
+    &.btn {
+        &:first-child {
+            &:active {
+                background: colors.$primarycolor;
+                border-color: colors.$primarycolor;
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+@use "../utils/variables";
+
+.card {
+    &.orange-highlights {
+        border-color:transparent ;
+        border-block-end: 3px solid #FFA633;
+        border-inline-start: 3px solid #FFA633;
+    }
+    &.success-highlights {
+        border-color:transparent ;
+        border-block-end: 3px solid #01B664;
+        border-inline-start: 3px solid #01B664;
+    }
+    &.info-highlights {
+        border-color:transparent ;
+        border-block-end: 3px solid #0080FF;
+        border-inline-start: 3px solid #0080FF;
+    }
+    &.danger-highlights {
+        border-color:transparent ;
+        border-block-end: 3px solid variables.$danger;
+        border-inline-start: 3px solid variables.$danger;
+    }
+
+}
+.filterbox {
+    &.invoice-title {
+        height: 70px;
+    }
+}
+.invoice-logo {
+    min-width: 213px;
+}
+.min-width-150 {
+    min-width: 150px;
+}

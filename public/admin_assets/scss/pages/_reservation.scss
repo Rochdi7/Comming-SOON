@@ -1,0 +1,116 @@
+@use "../utils/variables";
+
+.reservation-wizard {
+  ul {
+    li {
+      border: 1px solid variables.$gray-200;
+      border-radius: 5px;
+      padding: 8px 12px;
+      h6 {
+        font-weight: variables.$font-weight-medium;
+        font-size: variables.$font-size-14;
+      }
+      .wizard-icon { 
+        line-height: normal;
+      }
+      &.active {
+        background: variables.$secondary-transparent;
+        border-color: variables.$secondary-100;
+        color: variables.$secondary;
+        h6 {
+          color: variables.$secondary;
+        }
+      }
+      .active-check {
+        width: 14px;
+        height: 14px;
+        background: variables.$success;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: variables.$white;
+        display: none;
+        border-radius: 50%;
+        font-size: variables.$font-size-11;
+      }
+      &.activated {
+        background: variables.$dark;
+        h6 {
+          color: variables.$white;
+        }
+        .active-check { 
+          display: flex;
+        }
+        .wizard-icon {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.card-bg {
+  background: #fff url(../../assets/img/bg/card-bg.png) no-repeat;
+  background-size: cover;
+}
+.wizard-form {
+  fieldset {
+    display: none;
+    &#first-field {
+      display: block;
+    }
+  }
+}
+
+.custom-checkbox {
+  border: 1px solid variables.$gray-200;
+  padding: 16px;
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 16px;
+  span {
+      color: variables.$gray-600;
+      &.service-title {
+          color: variables.$gray-900;
+      }
+  }
+  &.active {
+      border-color: variables.$success;
+  }
+  &.radio-select {
+      input {
+         display: none;
+      }
+  }
+  input {
+      position: absolute;
+      left: 38px;
+      top: 50%;
+      transform: translateY(-50%);
+  }
+  &.active {
+      input {
+          opacity: 1;
+      }
+  }
+}
+.custom-nav-tabs {
+  .nav-item {
+    .nav-link {
+      background: variables.$secondary-transparent;
+      border-color: variables.$secondary-100;
+      color: variables.$secondary;
+      border-radius: 5px;
+      &.active {
+        background: variables.$dark;
+        color: variables.$white;
+        border-color: variables.$dark;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+.car-select {
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 4px;
+}

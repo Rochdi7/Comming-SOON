@@ -1,0 +1,121 @@
+@use "../base/colors";
+@use "../base/typography";
+@use "../utils/mixins";
+
+.footer-two {
+	background: colors.$light__vampire;
+	position: relative;
+	z-index: 1;
+	.sec-bg {
+		img {
+			position: absolute;
+			z-index: -1;
+			&:first-child {
+				bottom: 60px;
+				left: 0;
+				right: 0;
+			}
+			&:nth-child(2) {
+				left: 0;
+				top: 30px;
+			}
+		}
+	}
+	.footer-top {
+		padding: 40px 0 20px;
+	}
+	.footer-widget {
+		margin-bottom: 20px;
+		.widget-title {
+			h4 {
+				color: #0A152F;
+				font-size: typography.$font__size__18;
+				margin-bottom: 15px;
+			}
+		}
+		.footer-links {
+			li {
+				a {
+					color: colors.$gray_light;
+					font-size: typography.$font__size__14;
+					display: inline-flex;
+					align-items: center;
+					i {
+						font-size: typography.$font__size__10;
+						margin-right: 5px;
+					}
+					&:hover {
+						color: colors.$dark__blues;
+					}
+				}
+				& +li {
+					margin-top: 15px;
+				}
+			}
+		}
+		.footer-address {
+			>li {
+				font-size: typography.$font__size__14;
+				& +li {
+					margin-top: 15px;
+				}
+				&.social-link {
+					ul {
+						display: flex;
+						align-items: center;
+						li {
+							margin-right: 10px;
+							&:last-child {
+								margin-right: 0;
+							}
+							a {
+								width: 24px;
+								height: 24px;
+								border-radius: 50%;
+								background: #0A152F;
+								color: colors.$white;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								transition: 0.5s all;
+								&:hover {
+									background: colors.$dark__blues;
+									transition: 0.5s all;
+								}
+								i {
+									background: transparent;
+									font-size: typography.$font__size__12;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.footer-bottom {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 20px 0;
+		@include mixins.respond-below(custom767) {
+			padding-top: 0;
+		}
+		.copy-right {
+			font-size: typography.$font__size__14;
+			p {
+				font-size: typography.$font__size__14;
+				span {
+					color: #0A152F;
+				}
+			}
+			@include mixins.respond-below(custom575) {
+				margin-bottom: 20px;
+				text-align: center;
+			}
+		}
+		@include mixins.respond-below(custom575) {
+			flex-direction: column;
+		}
+	}
+}

@@ -1,0 +1,426 @@
+@use "../base/colors";
+@use "../base/typography";
+@use "../utils/mixins";
+@use "../utils/variables";
+
+/*-----------------
+    10. Table
+-----------------------*/
+
+.table {
+	color: colors.$gray;
+	max-width: 100%;
+	margin-bottom: 0;
+	width: 100%;
+    .dataTable {
+        border-collapse: collapse !important;
+    }
+    .table-avatar {
+        align-items: center;
+        display: inline-flex;
+        font-size: inherit;
+        font-weight: typography.$medium;
+        margin: 0;
+        padding: 0;
+        vertical-align: middle;
+        white-space: nowrap;
+        min-width: 150px;
+        font-size: typography.$font__size__14;
+    }
+    .thead-light {
+        th {
+            font-size: typography.$font__size__15;
+            color: colors.$goose-gray;
+            font-weight: typography.$medium;
+            background-color: colors.$light__gooses;
+            @include mixins.margin-padding(null, 15px);
+        }
+    }
+    thead {
+        background-color: colors.$light__gooses;
+        border-bottom: 0;
+        vertical-align: middle;
+        white-space:nowrap;
+     }
+     tbody{
+        vertical-align: middle;
+        white-space: nowrap;
+        tr {
+            border-bottom: 1pt solid #F1F1F1;
+            td{
+                border-color: colors.$ash;
+                 @include mixins.margin-padding(null, 15px);
+            }
+         }
+        td {
+            h2 {
+                display: inline-block;
+                font-size: inherit;
+                font-weight: typography.$regular;
+                margin: 0;
+                padding: 0;
+                vertical-align: middle;
+                span {
+                    color: colors.$dark__gray;
+                    display: block;
+                    font-size: typography.$font__size__13;
+                    margin-top: 2px;
+                }
+            }
+            a {
+                color: colors.$gray;
+                @extend %display-flex;
+                @extend %align-items-center;
+                &.btn-action-icon{
+                    background: colors.$smoke__white;
+                    color: colors.$gray__dark;
+                    width: 28px;
+                    height: 28px;
+                    padding: 0;
+                    @extend %flex-align-center;
+                    border-radius: 50px;
+                    &:active {
+                        color: colors.$primarycolor;
+                    }
+                }
+                + a{
+                    display: inline-block;
+                }
+                &.add-btn {
+                    display: inline-block !important;
+                }
+                &:hover {
+                    color: colors.$primarycolor;
+                }
+                &:active {
+                    color: colors.$white;
+                }
+                &.btn{
+                    display: inline-block;
+                    @include mixins.margin-padding(null, 5px 10px);
+                }
+            }
+            .items-links {
+                color: colors.$graybackblue;
+                display: inline-block;
+                &:hover {
+                    color: colors.$primarycolor;
+                } 
+            }
+        }
+     }
+     
+    .invoice-link {
+        color: colors.$gray__dark;
+        display: inline-block;
+        &:hover {
+            color: colors.$secondarycolor;
+    }
+    .table-center {
+        th,td {
+            vertical-align: middle;
+        }
+    }
+    .dropdown-menu {
+        width: 200px;
+        background: colors.$white;
+        border: 1px solid colors.$dark__gray;
+        box-shadow: 0px 4px 4px colors.$dark__gray;
+        margin-top: 10px !important;
+        @include mixins.rounded(6px);
+    }
+     .dropdown-item {
+        font-weight: typography.$medium;
+        font-size: typography.$font__size__13;
+        color: colors.$graybackblue;
+        display: flex;
+        align-items: center;
+        margin-bottom: 14px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        &:focus,&:hover {
+            color: colors.$primarycolor;
+            background: transparent;
+        }
+        &.active{
+            color: colors.$white;
+            text-decoration: none;
+            background-color: colors.$primarycolor;
+        }
+        i {
+            font-size: 16px;
+        }
+    }
+    }
+}
+.table {
+    .dropdown-menu {
+        width: 160px;
+        background: colors.$white;
+        border: 1px solid colors.$cloud__grays;
+        box-shadow: 0px 16px 32px colors.$dark__gray;
+        @include mixins.rounded(12px);
+        padding: 0;
+        margin-top: 10px !important;
+    }
+    .dropdown-item {
+        font-weight: typography.$medium;
+        font-size: typography.$font__size__13;
+        color: colors.$gray__dark;
+        @extend %flex-align-center;
+        @extend %jusflex-start;
+        padding: 10px 20px 10px;
+    }
+}
+
+.table-inbox {
+    font-size: typography.$font__size__15;
+    margin-bottom: 0;
+}
+.table-nowrap {
+    th,td {
+        white-space: nowrap
+    }
+}
+.table-striped  {
+    > tbody  {
+        > tr:nth-of-type(2n+1) {
+            background-color: #f8f9fa;
+        }
+    }
+    .dropdown-action {
+        margin-bottom: 0;
+    }
+    .table-bordered {
+        border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    }
+}
+.table.no-border > tbody > tr > td,
+.table > tbody > tr > th,
+.table.no-border > tfoot > tr > td,
+.table.no-border > tfoot > tr > th,
+.table.no-border > thead > tr > td,
+.table.no-border > thead > tr > th { 
+    @include mixins.margin-padding(null, 10px 8px);
+}
+
+.table-hover {
+    tbody {
+        tr{
+            &:hover {
+                background-color: #f6f6f7;
+            }
+        }
+    }
+}
+.table-bordered{
+    th{
+        border-color: rgba(0, 0, 0, 0.05);
+    }
+    td{
+        border-color: rgba(0, 0, 0, 0.05);
+        &:first-child{  
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+        }
+        &:last-child{
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+        }
+
+    }
+}
+
+
+.card-table {
+    .card-body {
+        @include mixins.margin-padding(null, 0  !important);        
+        .table {
+            > thead {
+                > tr {
+                    > th {
+                        border-top: 0;
+                    }
+                }
+            }
+            td {
+                color: colors.$gray__dark;
+                font-weight: typography.$regular;
+                border-top:0;
+                font-size: typography.$font__size__13;
+               @include mixins.margin-padding(null, 15px 25px);
+                white-space: nowrap;
+                box-shadow: none;
+                &:first-child{
+                    padding-left: 25px; 
+                }
+            }
+            th {
+                white-space: nowrap;
+                @include mixins.margin-padding(null, 12px 25px);
+                border-bottom: 0;
+                font-weight: typography.$medium;
+                font-size: typography.$font__size__14;;
+                color: colors.$secondarycolor;
+                &:first-child{
+                    padding-left: 25px; 
+                }
+            }
+        }
+    }
+}
+
+.table>:not(:first-child) {
+	border: 0;
+}
+ 
+.dataTables_length select {
+    appearance: auto;
+}
+.table-nosearch{
+    .dataTables_length,
+    .dataTables_filter{
+        display: none;
+    }
+}
+.card-table {
+	div {
+		&.table-responsive {
+			& > div {
+				&.dataTables_wrapper {
+					& > div {
+						&.row {
+							&:first-child {
+								padding:1.5rem 1.5rem 0 !important;
+                                align-items: center;
+							}
+                            &:last-child {
+								padding:0 1.5rem 1.5rem !important ;
+                                align-items: center;
+							}
+                        }
+					}
+				}
+			}
+		}
+	}
+}
+ 
+.dataTables_length select {
+    appearance: auto;
+}
+table {
+    .badge {
+        @include mixins.rounded(4px);
+        display: inline-block;
+        font-size: typography.$font__size__13;
+        min-width: auto;
+        @include mixins.margin-padding(null, 8px 10px);
+        font-weight: typography.$regular;
+        text-align: center;
+    }
+}
+.table {
+    tbody {
+        td {
+            a {
+                color: #2F2F2F;
+                &.action-icon{
+                    color: #333;
+                }
+            }
+            h2.table-avatar{
+                a{
+                    color: colors.$grayish__blue;
+                    &:hover {
+                        color: colors.$primarycolor;
+                    }
+                }
+            }
+        }
+    }
+}
+.mini-sidebar {
+    .header {
+        .header-left.header-left-two{
+            .logo.logo-small {
+                padding: 10px 0 0;
+                margin: 0;
+            }
+        }
+    }
+}
+.categories-table{
+   .table{
+        tr:last-child td {
+            padding-bottom: 0;
+            border: none;
+        }
+        td {
+            padding: 8px;
+            font-size: typography.$font__size__14;
+        }
+   }
+}
+.card-table{
+    .table{
+        background: colors.$white;
+        margin-bottom: 24px  !important;
+        border-radius: 8px;
+    }
+}
+.dataTables_length label {
+    font-weight: typography.$medium !important;
+    font-size: typography.$font__size__14;
+    color: colors.$grayish__blue;
+}
+.dataTables_length label:before {
+    content: "Show";
+    margin-right: 5px;
+    font-size: typography.$font__size__14;
+}
+.dataTables_length label:after {
+    content: "Entries";
+    margin-left: 5px;
+    font-size: typography.$font__size__14;
+}
+.dashboard-table {
+    .dt-container {
+        tr {
+            th {
+                &:hover {
+                    outline: 0 !important;
+                }
+            }
+        }
+        .dt-layout-row {
+            &:first-child {
+                display: none;
+               
+            }
+            &:last-child {
+                padding: 0 20px;
+            }
+        }
+        .dt-layout-row  {
+            margin: 0;
+        }
+        .dt-paging {
+            .dt-paging-button  {
+                &:first-child,&:last-child {
+                    display: none;
+                }
+                border: 1px solid #DBDBDB !important;
+                border-radius: 5px;
+                padding: 5px 10px;
+                margin: 5px;
+                &.current {
+                    background:#127384;
+                    border-color: #127384 !important;
+                    color: colors.$white !important;
+                }
+            }
+        }
+    }
+}

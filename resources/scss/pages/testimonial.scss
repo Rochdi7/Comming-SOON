@@ -1,0 +1,176 @@
+@use "../base/colors";
+@use "../base/typography";
+@use "../utils/mixins";
+@use "../utils/variables";
+
+/*-----------------
+    21. Testimonials
+-----------------------*/
+
+.testimonials-section {
+    position: relative;
+    @include mixins.margin-padding(null, 80px 0);
+    &.about-testimonial  {
+    	.review-box ~ p {
+    		margin-bottom: 24px;
+    		@include mixins.respond-below(custom991) {  
+    			margin-bottom: 20px;
+    		}
+    	}
+    }
+		@include mixins.respond-below(custom991) {            
+			@include mixins.margin-padding(null, 50px 0);
+		}
+		@include mixins.respond-below(custom767) {            
+			@include mixins.margin-padding(null, 40px 0);
+		}
+	.testimonial-group {
+		@include mixins.margin-padding(0 0 40px, null);
+		@include mixins.respond-below(custom767) {    
+			@include mixins.margin-padding(0 0 20px, null);
+		}
+	}
+	.owl-stage-outer {
+		@include mixins.margin-padding(0 0 16px, null);
+		@include mixins.respond-below(custom991) {  
+			@include mixins.margin-padding(0 0 6px, null);
+		}
+	}
+	.card-body {		
+		-webkit-transition: 500ms all ease;
+		-o-transition: 500ms all ease;
+		transition: 500ms all ease;
+		-moz-transition: 500ms all ease;
+		-ms-transition: 500ms all ease;
+		-webkit-box-shadow: 0px 4px 24px rgba(225, 225, 225, 0.25);
+		box-shadow: 0px 4px 24px rgba(225, 225, 225, 0.25);
+		border-radius: 8px;
+		&:hover {
+			background-color: colors.$dark__blues;
+			.review-img {
+				border: 3px solid colors.$white;
+			}
+			.review-details {
+				h6 {
+					color: colors.$white;
+				}
+				p {
+					font-size: typography.$font__size__14;
+					margin-bottom: 0;
+				}
+			}
+			.list-rating {			
+				p {					
+					span {
+						color: colors.$white;
+					}
+				}
+			}
+			p {
+				color: colors.$white;
+			}
+		}
+	}
+	.review-box {
+		@extend %display-flex-center;
+		align-items: center;
+		@include mixins.margin-padding(0 0 15px, null);
+		@include mixins.respond-below(custom991) {            
+			@include mixins.margin-padding(0 0 15px, null);
+        }
+		.review-img {
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			border: 3px solid colors.$blue__light;
+			-webkit-transition: 500ms all ease;
+			-o-transition: 500ms all ease;
+			transition: 500ms all ease;
+			-moz-transition: 500ms all ease;
+			-ms-transition: 500ms all ease;
+			@include mixins.respond-below(custom991) {            
+				width: 40px;
+				height: 40px;
+			}
+			img {
+				border-radius: 50px;
+			}
+		}	
+		.review-details {
+			margin-left: 15px;
+			@include mixins.respond-below(custom991) { 
+				margin-left: 12px;
+			}
+			h6 {
+				font-weight: 500;
+				font-size: typography.$font__size__20;
+				-webkit-transition: 500ms all ease;
+				-o-transition: 500ms all ease;
+				transition: 500ms all ease;
+				-moz-transition: 500ms all ease;
+				-ms-transition: 500ms all ease;
+				@include mixins.margin-padding(0 0 5px, null);
+				@include mixins.respond-below(custom1199) {
+					font-size: typography.$font__size__18;
+				}
+				@include mixins.respond-below(custom991) { 
+					font-size: 16px;
+				}
+			}
+		}
+	}	
+			.list-rating {
+				display: inline-flex;
+				margin-top: 0;
+				.list-rating-star {
+					@extend %display-flex-center;
+					i {
+						font-size: typography.$font__size__12;
+						line-height: 0;
+						color: colors.$primarycolor;
+					}
+				}				
+				p {
+					font-size: typography.$font__size__14;
+					line-height: 0;
+					-webkit-transition: 500ms all ease;
+					-o-transition: 500ms all ease;
+					transition: 500ms all ease;
+					-moz-transition: 500ms all ease;
+					-ms-transition: 500ms all ease;
+					span {
+						font-size: typography.$font__size__14;
+						@include mixins.margin-padding(0 5px 0, null);	
+						-webkit-transition: 500ms all ease;
+						-o-transition: 500ms all ease;
+						transition: 500ms all ease;
+						-moz-transition: 500ms all ease;
+						-ms-transition: 500ms all ease;
+					}
+				}
+			}
+	p {
+		-webkit-transition: 500ms all ease;
+		-o-transition: 500ms all ease;
+		transition: 500ms all ease;
+		-moz-transition: 500ms all ease;
+		-ms-transition: 500ms all ease;
+	}
+	.quotes-head {		
+		@include mixins.position(absolute, 24px, 24px, null, null);
+		&::before {
+			content: "";
+			display: block;
+			width: 28px;
+			height: 28px;
+			background: url(../img/quote.svg) no-repeat center center;			
+			@include mixins.margin-padding(0 0 20px, null);
+			opacity: 0.3;
+			@include mixins.respond-below(custom991) {           
+				width: 18px;
+				height: 18px; 
+				@include mixins.margin-padding(0 0 20px, null);
+			}
+		}
+	}	
+}

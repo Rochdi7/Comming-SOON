@@ -1,0 +1,122 @@
+@use "../utils/variables";
+
+.top-search {
+  box-shadow: variables.$box-shadow-xs;
+  border-radius: variables.$border-radius-xl;
+  .top-search-group {
+    position: relative;
+    .input-icon {
+      position: absolute;
+      top: 7px;
+      left: 10px;
+    }
+  }
+  .form-control {
+    height: 34px;
+    padding: 0.5rem 0.625rem 0.5rem 1.8rem;
+  }
+}
+.topdatepicker {
+  .form-control {
+    height: 34px;
+    box-shadow: variables.$box-shadow-xs;
+    padding: 0.5rem 0.625rem 0.5rem 2rem;
+    min-width: 210px;
+  }
+}
+.drag-upload-btn {
+  position: relative;
+  padding: 0.35rem 0.45rem;
+  font-size: 14px;
+  input {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }  
+}
+.upload-img {
+  width: 40px !important;
+  height: auto !important;
+}
+.upload-img-trash {
+  position: absolute;
+  bottom: 55px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  padding: 1px !important;
+}
+.coloredsquare {
+  width: 10px;
+  height: 10px;
+  background-color: variables.$danger;
+  rotate: 45deg;
+  &.black {
+    background-color: variables.$black;
+  }
+  &.white {
+    background-color: variables.$white;
+    border: 1px solid variables.$border-color;
+  }
+  &.maroon {
+    background-color: variables.$maroon;
+  }
+  &.yellow {
+    background-color: variables.$warning;
+  }
+  &.orange {
+    background-color: variables.$orange;
+  }
+  &.green {
+    background-color: variables.$success;
+  }
+  &.blue {
+    background-color: variables.$info;
+  }
+}
+.colorbox-container {
+  position: relative;
+  .colorbox {
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    border: none;
+    outline: none;
+  }
+  .colorhex {
+    padding-left: 60px;
+  }
+}
+.filterbox {
+  border: 1px solid variables.$border-color;
+  background: variables.$white url(../../assets/img/bg/filter-bg.jpg) no-repeat;
+  padding: 10px 20px;
+  border-radius: variables.$border-radius-xl;
+  background-size: 100% 100%;
+  .links {
+    font-weight: variables.$font-weight-semibold;
+    text-decoration: underline;
+  }
+}
+.filtercollapse {
+  font-weight: variables.$font-weight-normal;
+  font-size: variables.$font-size-14;
+  color: variables.$gray-900;
+  border: 1px solid variables.$gray-200;
+  border-radius: variables.$border-radius-lg;
+  padding: 0.35rem 0.6rem;
+  box-shadow: variables.$box-shadow-xs;
+  background: variables.$white;
+}
+.count {
+  background: variables.$danger;
+  color: variables.$white;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  line-height: 14px;
+}

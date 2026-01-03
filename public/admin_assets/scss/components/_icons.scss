@@ -1,0 +1,52 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
+.icons-list {
+  padding: 0;
+  display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    li {
+      display: block;
+      width: 40px;
+      height: 40px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      font-size: variables.$font-size-18;
+      @include mixins.rounded(50px);
+      border: 1px solid variables.$default-border;
+      margin: 5px;
+  }
+  .icons-list-item {
+    display: block;
+    width: 40px;
+    height: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    font-size: variables.$font-size-18;
+    @include mixins.rounded(50px);
+    border: 1px solid variables.$default-border;
+    margin: 5px;
+      &:hover {
+          background-color: variables.$gray-200;
+          color: variables.$primary;
+          font-size: 24px;
+      }
+  }
+}

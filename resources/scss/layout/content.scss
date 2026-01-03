@@ -1,0 +1,31 @@
+@use "../base/colors";
+@use "../base/typography";
+@use "../utils/mixins";
+
+.content {
+    @include mixins.margin-padding(null, 40px 0);
+    .content-header {
+        padding-bottom: 40px;
+        @include mixins.respond-below(custom767) {
+            padding-bottom: 20px;
+        }
+        h4 {
+            font-size: typography.$font__size__32;
+            font-weight: typography.$bold;
+            color: colors.$black;
+            margin-bottom: 0;
+            @include mixins.respond-below(custom991) {
+                font-size: typography.$font__size__28;
+            }
+            @include mixins.respond-below(custom767) {
+                font-size: typography.$font__size__26;
+            }
+        }
+    }
+    .content-settings-header {
+        padding-bottom: 15px;
+    }
+    &.dashboard-content {
+        padding-bottom: 16px;
+    }
+}

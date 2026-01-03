@@ -1,0 +1,127 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
+/*-----------------
+    2. Typography
+-----------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700;1,900&display=swap');
+
+
+$body__font__family: 'Fira Sans', sans-serif;
+
+$highbold:900;
+$bold:700;
+$semibold:600;
+$medium:500;
+$regular:400;
+$light:300;
+
+$body__font__size:16px;
+$menu__font__size:16px;
+$button__font__size:18px;
+$font__size__8:8px;
+$font__size__10:10px;
+$font__size__11:11px;
+$font__size__12:12px;
+$font__size__13:13px;
+$font__size__14:14px;
+$font__size__15:15px;
+$font__size__16:16px;
+$font__size__17:17px;
+$font__size__19:19px;
+$font__size__18:18px;
+$font__size__20:20px;
+$font__size__22:22px;
+$font__size__24:24px;
+$font__size__26:26px;
+$font__size__28:28px;
+$font__size__32:32px;
+$font__size__36:36px;
+$font__size__38:38px;
+$font__size__40:40px;
+$font__size__48:48px;
+$font__size__42:42px;
+$font__size__50:50px;
+$font__size__52:52px;
+$font__size__62:62px;
+
+
+
+a {
+	color: variables.$title;
+	cursor: pointer;
+	text-decoration: none;
+	@include mixins.transition(all 0.5s ease);
+	&:hover {
+	  color: variables.$primary;
+	  @include mixins.transition(all 0.5s ease);
+	}
+	&:focus {
+	  outline: 0;
+	}
+  }
+h1 {
+	font-weight: 900;
+	font-size: $font__size__62;
+	color: #201F1D;
+	@include mixins.respond-below(custom1199){
+		font-size:$font__size__36;
+	}
+}
+h2 {
+	font-weight: 900;
+	font-size:$font__size__36;
+	color: #111111;;
+	@include mixins.respond-below(custom991){
+		font-size:$font__size__26;
+	}
+}
+h3 {
+	font-weight: 700;
+	font-size: variables.$font-size-28;
+	color: #111111;
+	@include mixins.respond-below(lg){
+		font-size:variables.$font-size-24;
+	}
+	@include mixins.respond-below(md){
+		font-size:variables.$font-size-20;
+	}
+}
+h4 {
+	font-size:$font__size__28;
+	color: #2F2F2F;
+	@include mixins.respond-below(custom991){
+		font-size:$font__size__20;
+	}
+}
+h5 {
+	font-size:$font__size__18;
+	color: variables.$title;
+	@include mixins.respond-below(custom991){
+		font-size:$font__size__16;
+	}
+}
+h6 {
+	font-weight:$medium;
+	font-size:$font__size__18;
+	color: #111111;
+	@include mixins.respond-below(custom991){
+		font-size:$font__size__16;
+	}
+}
+.display-1 {
+	font-weight: variables.$font-weight-bold;
+	font-size: variables.$font-size-62;
+	color: variables.$title;
+	@include mixins.respond-below(xl){
+		font-size:variables.$font-size-50;
+	}
+	@include mixins.respond-below(lg){
+		font-size:variables.$font-size-40;
+	}
+	@include mixins.respond-below(md){
+		font-size:variables.$font-size-24;
+	}
+
+}

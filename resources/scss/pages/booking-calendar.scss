@@ -1,0 +1,175 @@
+@use "../base/colors";
+@use "../base/typography";
+@use "../utils/mixins";
+@use "../utils/variables";
+
+.calendar-card {
+	@include mixins.rounded(5px);
+	box-shadow: 0px 4px 24px 0px #E1E1E140;
+}
+.booking-nav {
+	li {
+		display: inline-block;
+		margin-right: 10px;
+		&:last-child {
+			margin-right: 0;
+		}
+		a {
+			width: 34px;
+			height: 34px;
+			@include mixins.rounded(5px);
+			background: colors.$light__vampire;
+			border: 1px solid colors.$light__gooses;
+			color: colors.$gray_light;
+			font-size: typography.$font__size__18;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			align-items: center;
+  			-webkit-box-align: center;
+ 			-ms-flex-align: center;
+			justify-content: center;
+			-webkit-justify-content: center;
+			-ms-flex-pack: center;
+			&:hover, &.active {
+				background: colors.$primarycolor;
+				border-color: colors.$primarycolor;
+				color: colors.$white;
+			}
+		}
+	}
+}
+
+.fc .fc-col-header-cell-cushion  {
+	color: colors.$black-gray;
+	font-size: typography.$font__size__14;
+	font-weight: normal;
+}
+.fc {
+	th {
+		background: colors.$light__vampire;
+		border-color: colors.$blue__light;
+		height: 37px;
+    	line-height: 37px;
+	}
+	td {
+		border-color: colors.$blue__light;
+	}
+	.fc-daygrid-day-number {
+		color: colors.$black-gray;
+		font-size: typography.$font__size__20;
+		font-weight: typography.$medium;
+		@include mixins.respond-below(custom991) {   
+			font-size: typography.$font__size__18;
+		}
+		@include mixins.respond-below(custom767) {   
+			font-size: typography.$font__size__16;
+		}
+	}
+	.fc-toolbar-title {
+		font-size: typography.$font__size__24;
+		font-weight: typography.$semibold;
+		color: colors.$black-gray;
+		@include mixins.respond-below(custom991) {   
+			font-size: typography.$font__size__20;
+		}
+		@include mixins.respond-below(custom767) {   
+			font-size: typography.$font__size__18;
+		}
+	}
+}
+.fc-event {
+	box-shadow: 0px 4px 24px 0px #E1E1E140;
+	border-color: colors.$white;
+	background: colors.$white;
+	border-radius: 5px;
+	color: colors.$black-gray;
+	padding: 10px;
+	border-top: 2px solid colors.$white;
+	&.event-completed {
+		border-top-color: colors.$success__light;
+	}
+	&.event-inprogress {
+		border-top-color: colors.$warningcolor;
+	}
+	&.event-cancel {
+		border-top-color: colors.$dangered;
+	}
+	&.event-upcoming {
+		border-top-color: colors.$dark__blues;
+	}
+}
+.fc-event-main {
+	color: colors.$black-gray !important;
+}
+.fc .fc-button-primary {
+	background-color: colors.$light__hash;
+	border-color: colors.$blue__light;
+	color: colors.$black-gray;
+	font-size: typography.$font__size__14;
+	height: 40px;
+	border-radius: 5px;
+	&:hover, &.active {
+		background-color: colors.$light__hash;
+		border-color: colors.$blue__light;
+		color: colors.$black-gray;
+	}
+	&:focus {
+		box-shadow:none;
+	}
+	&.fc-dayGridMonth-button, &:not(:disabled).fc-button-active {
+		background-color: colors.$light__hash;
+		border-color: colors.$blue__light;
+		color: colors.$black-gray;
+		font-size: typography.$font__size__14;
+		height: 40px;
+		border-radius: 0;
+		border-width: 1px 0;
+		padding: 0;
+		&:hover {
+			background-color: colors.$light__hash;
+			border-color: colors.$blue__light;
+			color: colors.$black-gray;
+		}
+		&:focus {
+			box-shadow:none;
+		}
+	}
+	&.fc-book-button {
+		border-radius: 5px;
+		@include mixins.margin-padding(null, 7px 20px 7px 42px);
+		position: relative;
+        color: colors.$white;
+        background-color: colors.$secondarycolor;
+        border: 1px solid colors.$secondarycolor;
+        font-weight: 500;
+        font-size: 16px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        &:hover {
+            background-color: colors.$white;
+            color: colors.$secondarycolor;
+            border-radius: 5px;
+            box-shadow: inset 0 70px 0 0 colors.$white;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+	    &::before {
+	    	@include mixins.position(absolute, 50%, null, null, 20px);
+	    	@include mixins.transform(translateY(-50%));
+	    	font-family: "Fontawesome";
+	 	    content: "\f055";
+
+	    }
+	}
+}
+.fc-direction-ltr .fc-button-group > .fc-button:not(:first-child) {
+	border-left: 0;
+}
+.fc .fc-button .fc-icon {
+    font-size: typography.$font__size__14;
+}

@@ -1,0 +1,51 @@
+@use "../utils/variables";
+
+.dark-mode {
+    .filterbox {
+        h6, h4 {
+            color:  variables.$darkmode-white;
+        }
+    }
+    .card-bg {
+        h4 {
+            color:  variables.$darkmode-white;
+        }
+    }
+    .sidebar {
+        .sidebar-logo {
+            .logo {
+                display: none;
+            }
+            .dark-logo {
+                display: block;
+            }
+        } 
+    }
+    .toast-header {
+        .btn-close {
+            filter: brightness(0) invert(1);
+        }
+    }
+    div:where(.swal2-container) div:where(.swal2-popup) {
+        background: variables.$darkmode-white;
+    }
+    .modal {
+        .modal-content {
+            box-shadow: none;
+        }
+    }
+    .form-control, .top-search, .dropdown .dropdown-toggle {
+        box-shadow: none;
+    }
+    .topdatepicker {
+        .form-control {
+            box-shadow: none;
+        }
+    }
+    .btn-primary, .btn-danger, .btn-secondary, .btn-warning, .btn-info, .btn-success {
+        color: var(--gray-900) !important;
+    }
+    .working-days span {
+        color: var(--gray-900);
+    }
+}

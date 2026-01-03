@@ -1,0 +1,93 @@
+@use "../base/colors";
+@use "../base/typography";
+@use "../utils/mixins";
+@use "../utils/variables";
+
+/*-----------------
+    22. About Us
+-----------------------*/
+
+.about-img {
+	position: relative;
+	@include mixins.margin-padding(0 0 24px 0, null);
+	img {
+		border-radius: 10px;
+		@include mixins.margin-padding(null, 0 0 0 10px);
+	}
+	.about-exp {
+		position: absolute;
+		background: colors.$primarycolor;
+		border-radius: 10px;
+		width: 370px;
+		height: 100%;
+		@include mixins.respond-below(custom767) {
+			width: 230px;
+		}			
+		span {
+			font-weight: typography.$medium;
+			font-size: typography.$font__size__28;
+			color: colors.$white;
+			display: inline-block;
+			margin: 250px -122px;
+			transform: rotate(-90deg);
+				@include mixins.respond-below(custom767) {
+					font-size: typography.$font__size__18;
+					margin: 275px -90px;
+				}							
+				@include mixins.respond-below(custom575) {
+					font-size: typography.$font__size__16;
+					margin: 115px -75px;
+				}
+		}
+	}
+}
+.abt-img {
+	padding: 30px 0 30px 60px;
+	position: relative;
+	z-index: 1;
+}
+.about-content {
+	@include mixins.margin-padding(0 0 0 50px, null);
+		@include mixins.respond-below(custom991) {
+			@include mixins.margin-padding(0, null);
+		}
+	h6 {
+		font-size: typography.$font__size__18;
+		color: colors.$dark__blues;
+		font-weight: typography.$medium;
+		text-transform: uppercase;
+		@include mixins.margin-padding(0 0 12px, null);
+	}
+	h2 {
+		font-size: typography.$font__size__38;
+		font-weight: typography.$medium;
+		@include mixins.margin-padding(0 0 30px, null);
+		@include mixins.respond-below(custom991) {
+			font-size: typography.$font__size__28;
+		}
+		@include mixins.respond-below(custom767) {
+			font-size: typography.$font__size__24;
+		}
+	}
+	p {
+		@include mixins.margin-padding(0 0 14px, null);
+	}
+	ul {
+		li {
+			position: relative;
+			@include mixins.margin-padding(0 0 15px, 0 0 0 25px);
+			color: colors.$gray__lightdark;
+			&::before {
+				position: absolute;
+				top: 0;
+				left: 0;
+				content: '\f058';
+				font-family: 'FontAwesome';
+				color: colors.$dark__blues;
+			}
+			&:last-child {
+				@include mixins.margin-padding(0, null);
+			}
+		}
+	}
+}

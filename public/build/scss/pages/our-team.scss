@@ -1,0 +1,63 @@
+@use "../base/colors";
+@use "../base/typography";
+@use "../utils/mixins";
+@use "../utils/variables";
+
+/*-----------------
+    17. Our Team
+-----------------------*/
+
+.our-team-section {
+    background: colors.$alice__blue;
+    position: relative;
+    @include mixins.margin-padding(null, 80px 0 55px);
+    @include mixins.respond-below(custom991) {
+        @include mixins.margin-padding(null, 60px 0 35px);
+    }
+    @include mixins.respond-below(custom767) {
+        @include mixins.margin-padding(null, 40px 0 15px);
+    }
+    .our-team {
+        text-align: center;
+        border-bottom: 3px solid colors.$white;
+        background: colors.$white;
+        box-shadow: 0px 4px 24px rgba(225, 225, 225, 0.25);
+        border-radius: 0px 10px 10px;
+        @include mixins.margin-padding(0 0 25px, null);
+        transition: all 0.2s ease-out 0s;
+        .team-prof {
+            @include mixins.margin-padding(null, 30px);
+            .team-designation {
+                @include mixins.margin-padding(null, 0 0 30px);
+                display: block;
+            }            
+            .team-post-title {
+                font-weight: typography.$bold;
+                font-size: typography.$font__size__24;
+                margin-bottom: 10px;
+            }
+        }        
+        .profile-pic {
+            position: relative;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+                transform: translateZ(0);
+                transition: all 2000ms cubic-bezier(0.19, 1, 0.22, 1) 0ms;
+            }
+        }
+    } 
+    .our-team:hover {
+        border-bottom: 3px solid colors.$primarycolor;
+        transition: all 0.2s ease-out 0s;
+        .profile-pic {
+            img {
+                -webkit-transform: scale(1.15);
+                -moz-transform: scale(1.15);
+                transform: scale(1.15);
+            }
+        }
+        
+    }
+}

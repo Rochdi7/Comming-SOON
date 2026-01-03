@@ -1,0 +1,44 @@
+@use "../utils/mixins";
+@use "colors";
+@use "typography";
+
+/*-----------------
+	3. General
+-----------------------*/
+
+body{
+	font-family: typography.$body__font__family;
+	font-size: typography.$body__font__size;
+	color: colors.$gray_light;
+	background: colors.$cylindrical;
+	overflow-x: hidden;
+	@include mixins.respond-below(custom991){
+		font-size:typography.$font__size__15;
+	}
+}
+a {
+	cursor: pointer;
+	@include mixins.transition(all 0.2s ease);
+	&:hover{
+		@include mixins.transition(all 0.2s ease);
+	}
+	&:focus {
+		outline: 0;
+	}
+}
+p {
+	&:last-child{
+		margin-bottom:0;
+	}
+}
+strong{
+	font-weight: typography.$bold;
+}
+.form-control {
+	&:focus {
+		border-color: #bbb;
+		box-shadow: none;
+		outline: 0 none;
+	}
+    
+}

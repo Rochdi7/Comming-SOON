@@ -1,0 +1,12 @@
+/node_modules
+/vendor
+
+.env
+.env.*
+!.env.example
+
+/storage/*.key
+/storage/framework/*
+/bootstrap/cache/*
+
+/public/storage

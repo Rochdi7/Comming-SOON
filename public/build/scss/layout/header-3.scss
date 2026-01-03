@@ -1,0 +1,52 @@
+@use "../base/colors";
+@use "../utils/mixins";
+
+.header {
+	&.header-three {
+		box-shadow: 0px 4px 24px 0px #E1E1E140;
+		.header-nav {
+			height: 69px;
+			.main-nav {
+			 	> li {
+			 		> a {
+			 			line-height: 69px;
+			 		}
+			 	}
+			}
+		}
+		.header-navbar-rht {
+			li {
+				&.user-link {
+					position: relative;
+					margin-right: 15px;
+					&::before {
+						@include mixins.position(absolute, 50%, 0, null, null);
+						@include mixins.transform(translateY(-50%));
+						content: "";
+						width: 1px;
+						height: 21px;
+					}
+				}
+				.header-user {
+					width: 36px;
+					height: 36px;
+					@include mixins.rounded(50%);
+					display: -webkit-box;
+					display: -ms-flexbox;
+					display: flex;
+					align-items: center;
+					-webkit-box-align: center;
+					-ms-flex-align: center;
+					justify-content: center;
+					-webkit-justify-content: center;
+					-ms-flex-pack: center;
+					color: colors.$white;
+					background: colors.$black-gray;
+					&:hover {
+						background: colors.$primarycolor;
+					}
+				}
+			}
+		}
+	}
+}

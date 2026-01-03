@@ -1,0 +1,576 @@
+@use "../base/colors";
+@use "../base/typography";
+@use "../utils/mixins";
+@use "../utils/variables";
+
+/*-----------------
+    15. Pricing
+-----------------------*/
+
+.pricing-section {
+    position: relative;
+    @include mixins.margin-padding(null, 80px 0);
+    @include mixins.respond-below(custom991) {
+        @include mixins.margin-padding(null, 50px 0 25px);
+    }
+    .price-card {
+        &.price-selected {
+            border-radius: 5px;
+            .price-head {
+                @include mixins.margin-padding(0, 0);
+                border: 0;
+                a {
+                    color: colors.$white;
+                    &:hover {
+                        color: colors.$primarycolor;
+                    }
+                }
+            }
+        }
+        &.active {
+            border-color: colors.$primarycolor;
+        }
+        background: colors.$white;
+        border: 1px solid colors.$blue__light;
+        box-shadow: 0px 4px 24px rgba(225, 225, 225, 0.25);
+        border-radius: 15px;
+        @include mixins.margin-padding(0 0 24px 0, 20px);  
+        z-index: 1;
+        position: relative;
+        overflow: hidden;
+        -webkit-transition: 500ms all ease;
+        -o-transition: 500ms all ease;
+        transition: 500ms all ease;
+        -moz-transition: 500ms all ease;
+        -ms-transition: 500ms all ease;
+        @include mixins.respond-below(custom991) {
+            @include mixins.margin-padding(null, 15px);
+        } 
+        .price-head {     
+            @include mixins.margin-padding(0 0 28px, 0 0 28px);   
+            border-bottom: 1px solid colors.$light__gooses;              
+            @include mixins.respond-below(custom991) {
+                @include mixins.margin-padding(0 0 15px, 15px);
+            } 
+            .price-level {
+                @include mixins.margin-padding(0 0 20px, 10px);
+                background: colors.$alice__blue;
+                border-radius: 10px;
+                text-align: center;
+                @include mixins.respond-below(custom768) {
+                    @include mixins.margin-padding(0 0 10px, 10px);
+                }
+                h6 {
+                    @include mixins.margin-padding(0 0 2px, null); 
+                    font-weight: typography.$semibold;
+                    font-size: typography.$font__size__24;
+                    @include mixins.respond-below(custom768) {
+                        font-size: typography.$font__size__20;
+                    }
+                }
+                p {
+                    font-size: typography.$font__size__14;
+                }
+            }
+            .price-level-popular {
+                background: colors.$warningcolor;
+                border-radius: 10px;
+                -webkit-transition: 500ms all ease;
+                -o-transition: 500ms all ease;
+                transition: 500ms all ease;
+                -moz-transition: 500ms all ease;
+                -ms-transition: 500ms all ease;
+                h6 {
+                    font-weight: typography.$bold;
+                    @include mixins.margin-padding(0 0 5px, null);
+                    font-size: typography.$font__size__20;
+                    color: colors.$white;
+                }
+                p {
+                    color: colors.$white;
+                }
+            }
+            h4 {
+                font-weight: typography.$bold;
+                font-size: typography.$font__size__36;
+                color: colors.$goose-gray;
+                @include mixins.margin-padding(0 0 4px, null);
+                -webkit-transition: 500ms all ease;
+                -o-transition: 500ms all ease;
+                transition: 500ms all ease;
+                -moz-transition: 500ms all ease;
+                -ms-transition: 500ms all ease;
+                text-align: center;
+                @include mixins.respond-below(custom767) {
+                    font-size: typography.$font__size__26;
+                }
+            }
+            span {
+                -webkit-transition: 500ms all ease;
+                -o-transition: 500ms all ease;
+                transition: 500ms all ease;
+                -moz-transition: 500ms all ease;
+                -ms-transition: 500ms all ease;
+                display: block;
+                text-align: center;
+                font-size: typography.$font__size__14;
+            }
+        }
+        .price-details {
+            p {
+                line-height: 27px;
+                color: colors.$sandstone;
+                @include mixins.margin-padding(0 0 20px, null);
+            }
+            ul {
+                @include mixins.margin-padding(0 0 20px, null);
+                li {
+                    font-size: typography.$font__size__14;
+                    position: relative;
+                    @include mixins.margin-padding(0 0 20px,null);
+                }
+                .price-check {
+                    -webkit-transition: 500ms all ease;
+                    -o-transition: 500ms all ease;
+                    transition: 500ms all ease;
+                    -moz-transition: 500ms all ease;
+                    -ms-transition: 500ms all ease;
+                    @extend %display-flex;
+                    span {
+                        @include mixins.margin-padding(0 10px 0 0, null);
+                        color: colors.$success__light;
+                        -webkit-transition: 500ms all ease;
+                        -o-transition: 500ms all ease;
+                        transition: 500ms all ease;
+                        -moz-transition: 500ms all ease;
+                        -ms-transition: 500ms all ease;
+                    }
+                }
+                .price-uncheck {
+                    -webkit-transition: 500ms all ease;
+                    -o-transition: 500ms all ease;
+                    transition: 500ms all ease;
+                    -moz-transition: 500ms all ease;
+                    -ms-transition: 500ms all ease;
+                    @extend %display-flex;
+                    span {
+                        @include mixins.margin-padding(0 10px 0 0, null);
+                        color: colors.$dangered;
+                        -webkit-transition: 500ms all ease;
+                        -o-transition: 500ms all ease;
+                        transition: 500ms all ease;
+                        -moz-transition: 500ms all ease;
+                        -ms-transition: 500ms all ease;
+                    }
+                }
+            }
+            .viewdetails-btn {
+                display: block;
+                border-radius: 5px;
+                background: colors.$white;
+                border: 2px solid colors.$goose-gray;
+                color: colors.$goose-gray;
+                @include mixins.margin-padding(null, 6px 12px);
+                font-weight: typography.$medium;
+                -webkit-transition: 500ms all ease;
+                -o-transition: 500ms all ease;
+                transition: 500ms all ease;
+                -moz-transition: 500ms all ease;
+                -ms-transition: 500ms all ease;
+            }
+            .btn-popular {
+                background: colors.$primarycolor !important;
+                color: #ffffff !important;
+                border: 2px solid colors.$primarycolor !important;
+            }
+            .viewdetails-btn-popular {
+                background: colors.$text-warning__light;
+                border-radius: 5px;
+                display: block;
+                color: colors.$white;
+                @include mixins.margin-padding(null, 18px);
+                font-weight: typography.$bold;
+                font-size: typography.$font__size__16;
+                -webkit-transition: 500ms all ease;
+                -o-transition: 500ms all ease;
+                transition: 500ms all ease;
+                -moz-transition: 500ms all ease;
+                -ms-transition: 500ms all ease;
+                @include mixins.respond-below(custom991) {
+                    @include mixins.margin-padding(null, 7px 12px);
+                }
+            }
+        }
+        &:hover {
+            background: colors.$dark__blues;
+            border-color:  colors.$dark__blues;
+            .price-head {
+                h4 {
+                    color: colors.$white;
+                }
+                span {
+                    color: colors.$white;
+                }
+            }
+            .price-details {
+                .price-check {
+                    color: colors.$white;
+                }
+                .price-uncheck {
+                    color: colors.$white;
+                }
+            }
+            .price-level-popular {
+                background: colors.$goose-gray;
+            }
+            .viewdetails-btn-popular {
+                background: colors.$goose-gray;
+            }
+            .viewdetails-btn {
+                border: 2px solid colors.$white;
+            }
+            .btn-popular {
+                background: colors.$goose-gray !important;
+                border: 2px solid colors.$goose-gray !important;
+            }
+        }
+    }
+    .price-plan-card {
+        background: colors.$white;
+        border: 1px solid colors.$blue__light;
+        box-shadow: 0px 4px 24px rgba(225, 225, 225, 0.25);
+        border-radius: 15px;
+        padding: 20px;
+        z-index: 1;
+        position: relative;
+        overflow: hidden;
+        -webkit-transition: 500ms all ease;
+        -o-transition: 500ms all ease;
+        transition: 500ms all ease;
+        -moz-transition: 500ms all ease;
+        -ms-transition: 500ms all ease;
+        @include mixins.respond-below(custom768) {
+            @include mixins.margin-padding(null, 10px);
+            height: 524px;
+        } 
+        .price-head {     
+            border-bottom: 1px solid colors.$light__gooses;
+            @include mixins.margin-padding(null, 0 0 28px);      
+            .price-level {
+                @include mixins.margin-padding(0 0 15px, 16px);
+                background: colors.$alice__blue;
+                border-radius: 10px;
+                @include mixins.respond-below(custom768) {
+                    @include mixins.margin-padding(0 0 10px, 10px);
+                }
+                h6 {
+                    @include mixins.margin-padding(0 0 5px, null); 
+                    font-weight: typography.$bold;
+                    font-size: typography.$font__size__24;
+                    color: colors.$gray__dark;
+                    @include mixins.respond-below(custom768) {
+                        font-size: typography.$font__size__20;
+                    }
+                }
+            }
+            .price-level-popular {
+                background: colors.$warningcolor;
+                border-radius: 10px;
+                -webkit-transition: 500ms all ease;
+                -o-transition: 500ms all ease;
+                transition: 500ms all ease;
+                -moz-transition: 500ms all ease;
+                -ms-transition: 500ms all ease;
+                h6 {
+                    font-weight: typography.$bold;
+                    @include mixins.margin-padding(0 0 5px, null);
+                    font-size: typography.$font__size__24;
+                    color: colors.$white;
+                }
+                p {
+                    color: colors.$white;
+                }
+            }
+            h4 {
+                font-weight: typography.$highbold;
+                font-size: typography.$font__size__36;
+                color: colors.$goose-gray;
+                @include mixins.margin-padding(0 0 15px, null);
+                -webkit-transition: 500ms all ease;
+                -o-transition: 500ms all ease;
+                transition: 500ms all ease;
+                -moz-transition: 500ms all ease;
+                -ms-transition: 500ms all ease;
+                @include mixins.respond-below(custom768) {
+                    font-size: typography.$font__size__26;
+                }
+            }
+            span {
+                font-weight: typography.$medium;
+                font-size: typography.$font__size__14;
+                color: colors.$sandstone;
+                -webkit-transition: 500ms all ease;
+                -o-transition: 500ms all ease;
+                transition: 500ms all ease;
+                -moz-transition: 500ms all ease;
+                -ms-transition: 500ms all ease;
+            }
+        }
+        .price-details {
+            @include mixins.margin-padding(null, 28px 0 0);
+            p {
+                line-height: 27px;
+                color: colors.$sandstone;
+                @include mixins.margin-padding(0 0 20px, null);
+            }
+            ul {
+                @include mixins.margin-padding(0 0 28px, null);
+                li {
+                    line-height: 18px;
+                    position: relative;
+                    @include mixins.margin-padding(0 0 15px, 5px 0 0);
+                }
+                .price-check {
+                    font-weight: typography.$medium;
+                    font-size: typography.$font__size__14;
+                    color: colors.$grey;
+                    -webkit-transition: 500ms all ease;
+                    -o-transition: 500ms all ease;
+                    transition: 500ms all ease;
+                    -moz-transition: 500ms all ease;
+                    -ms-transition: 500ms all ease;
+                    span {
+                        @include mixins.margin-padding(0 10px 0, null);
+                        color: colors.$success__light;
+                        -webkit-transition: 500ms all ease;
+                        -o-transition: 500ms all ease;
+                        transition: 500ms all ease;
+                        -moz-transition: 500ms all ease;
+                        -ms-transition: 500ms all ease;
+                    }
+                }
+                .price-uncheck {
+                    font-weight: typography.$medium;
+                    font-size: typography.$font__size__14;
+                    color: colors.$grey;
+                    text-decoration: line-through;
+                    -webkit-transition: 500ms all ease;
+                    -o-transition: 500ms all ease;
+                    transition: 500ms all ease;
+                    -moz-transition: 500ms all ease;
+                    -ms-transition: 500ms all ease;
+                    @include mixins.respond-below(custom768) {
+                        font-size: typography.$font__size__12;
+                    } 
+                    span {
+                        @include mixins.margin-padding(0 10px 0, null);
+                        color: colors.$dangered;
+                        -webkit-transition: 500ms all ease;
+                        -o-transition: 500ms all ease;
+                        transition: 500ms all ease;
+                        -moz-transition: 500ms all ease;
+                        -ms-transition: 500ms all ease;
+                    }
+                }
+            }
+            .viewdetails-btn {
+                display: block;
+                box-shadow: 0px 4px 24px rgba(225, 225, 225, 0.25);
+                border-radius: 5px;
+                background: colors.$white;
+                border: 2px solid colors.$goose-gray;
+                color: colors.$goose-gray;
+                @include mixins.margin-padding(null, 7px 12px);
+                font-weight: typography.$bold;
+                font-size: 16px;
+                -webkit-transition: 500ms all ease;
+                -o-transition: 500ms all ease;
+                transition: 500ms all ease;
+                -moz-transition: 500ms all ease;
+                -ms-transition: 500ms all ease;
+            }
+            .btn-popular {
+                background: colors.$primarycolor !important;
+                color: #ffffff !important;
+                border: 2px solid colors.$primarycolor !important;
+            }
+            .viewdetails-btn-popular {
+                background: colors.$text-warning__light;
+                border-radius: 5px;
+                display: block;
+                color: colors.$white;
+                @include mixins.margin-padding(null, 18px);
+                font-weight: typography.$bold;
+                font-size: typography.$font__size__16;
+                -webkit-transition: 500ms all ease;
+                -o-transition: 500ms all ease;
+                transition: 500ms all ease;
+                -moz-transition: 500ms all ease;
+                -ms-transition: 500ms all ease;
+            }
+        }
+        &:hover {
+            background: colors.$dark__blues;
+            border: 1px solid colors.$blue__light;
+            .price-head {
+                h4 {
+                    color: colors.$white;
+                }
+                span {
+                    color: colors.$white;
+                }
+            }
+            .price-details {
+                .price-check {
+                    color: colors.$white;
+                }
+                .price-uncheck {
+                    color: colors.$white;
+                }
+            }
+            .price-level-popular {
+                background: colors.$goose-gray;
+            }
+            .viewdetails-btn-popular {
+                background: colors.$goose-gray;
+            }
+            .viewdetails-btn {
+                border: 2px solid colors.$white;
+            }
+            .btn-popular {
+                background: colors.$goose-gray !important;
+                border: 2px solid colors.$goose-gray !important;
+            }
+        }
+    }
+    .price-card-popular {
+        border: 1px solid colors.$warningcolor;
+        @include mixins.margin-padding(-10px 0 0, null);
+            @include mixins.respond-below(custom767) {
+                @include mixins.margin-padding(24px 0 24px, null);
+            } 
+            @include mixins.respond-below(custom768) {
+                @include mixins.margin-padding(null, 10px);
+            } 
+    }
+}
+.pricing-section-bottom {
+    padding-bottom: 80px;
+    @include mixins.respond-below(custom991) {
+        padding-bottom: 50px;
+    }
+}
+.plan-selected {    
+    @extend %flex-align-center;    
+    @include mixins.margin-padding(0 0 50px 0, null);
+        @include mixins.respond-below(custom991) {
+            @include mixins.margin-padding(0 0 30px 0, null);
+        }
+    h4 {
+        font-weight: typography.$regular;
+        font-size: 16px;
+        color: #201F1D;
+    }
+    .status-toggle {
+        display: flex;
+        align-items: center;
+        .checktoggle {
+            background-color: #C4C4C4;
+            border: 1px solid #C4C4C4;
+            cursor: pointer;
+            display: block;
+            font-size: 0;
+            height: 24px;
+            margin-bottom: 0;
+            position: relative;
+            width: 48px;
+            top: 0px;
+            @include mixins.rounded(12px);
+            transform: translate(calc(10% - 5px), -10%);
+            &:after {
+                height: 15px;
+                width: 15px;
+            }
+        }
+        .check {
+            display: block;
+            margin: 0;
+            padding: 0;
+            width: 0;
+            height: 0;
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            &:checked {
+                & + .checktoggle {
+                    background-color: colors.$success__light;
+                    border: 1px solid colors.$success__light;
+                    &:after {
+                        background-color: colors.$white;
+                        left: 100%;
+                        transform: translate(calc(-100% - 5px), -50%);
+                        height: 15px;
+                        width: 15px;
+                    }
+                }
+            }
+        }
+        .checktoggle{
+            &:after {
+                content: ' ';
+                display: block;
+                background-color:rgba(0, 0, 0, 0.25);
+                height: 15px;
+                width: 15px; 
+                @include mixins.transform(translate(5px, -50%));
+                @include mixins.position(absolute,null,null,null,0);
+                @include mixins.rounded(50%); 
+                @include mixins.position(absolute,50%,null,null,0);
+                @include mixins.transition(all 0.2s ease);
+            } 
+            .checkbox-bg {
+                &::after {
+                    background: rgba(0, 0, 0, 0.25);
+                }
+            }
+        }
+    }
+}
+.price-selected {
+    background: colors.$dark__blues !important;
+    border-color: colors.$dark__blues !important;
+    @include mixins.respond-below(custom991) {
+        height: 555px;
+    }
+    .price-head {
+        @include mixins.margin-padding(0, 0);
+        border: 0;
+    }
+    h2 {
+        font-weight: typography.$bold;
+        font-size: typography.$font__size__32;
+        color: colors.$white;
+        @include mixins.margin-padding(0 0 15px, null);
+        @include mixins.respond-below(custom767) { 
+            font-size: typography.$font__size__26;
+        }
+    }
+    p {
+        color: colors.$white;
+        @include mixins.margin-padding(0 0 20px, null);
+    }
+    .plan-view-details {
+        color: colors.$white;
+        font-size: typography.$font__size__20;
+    }
+    .price-body {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    &:hover {
+        background: colors.$gray__dark!important;
+        border-color: colors.$gray__dark!important;
+    }
+}

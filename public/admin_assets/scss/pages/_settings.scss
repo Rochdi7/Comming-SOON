@@ -1,0 +1,73 @@
+@use "../utils/variables";
+
+
+/* settings sidebar*/
+.settings-sidebar {
+    padding: 20px 0;
+    .sidebar-menu {
+            .menu-title {
+                font-size: variables.$font-size-12;
+                font-weight: variables.$font-weight-bold;
+                margin-bottom: 12px;
+                color: variables.$gray-400;
+            }
+            .sidebar-links {
+                li {
+                    margin-bottom: 4px;
+                    padding: 4px 8px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    a {
+                        line-height: 21px;
+                        width: 100%;
+                        display: block;
+                        i {
+                            color: variables.$gray-500;
+                        }
+                    }
+                    &:hover {
+                        background: variables.$gray-200;
+                        border-radius: 5px;
+                        a {
+                            color: variables.$gray-900;
+                        }
+                    }
+                }
+                
+                .active {
+                    background: variables.$dark;
+                    color: variables.$white;
+                    border-radius: 5px;
+                    a {
+                        color: variables.$white;
+                        i {
+                            color: variables.$white;
+                        }
+                    }
+                }
+            }
+    }
+}
+/* /settings sidebar*/
+
+.progress-percent {
+    width: 120px;
+}
+/* profile setting*/
+.profile-setting-section {
+    .upload-img-trash {
+        position: absolute;
+        bottom: 0;
+        right: 3px;
+        width: 20px;
+        height: 20px;
+        padding: 1px !important;
+        background: variables.$white;
+        color: variables.$danger;
+        &:hover {
+            background: variables.$danger;
+            color: variables.$white;
+        }
+    }
+}

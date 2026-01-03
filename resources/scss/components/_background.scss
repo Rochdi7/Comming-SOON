@@ -1,0 +1,14 @@
+@use "../utils/variables";
+
+.bg-primary {
+    background: variables.$primary !important;
+}
+.bg-secondary-100 {
+    background: variables.$secondary-1 !important;
+}
+.bg-pink {
+    background: variables.$pink !important;
+}
+.bg-dark {
+    background: variables.$title;
+}

@@ -1,0 +1,110 @@
+@use "../base/colors";
+@use "../base/typography";
+@use "../utils/mixins";
+@use "../utils/variables";
+
+/*-----------------
+    14. FAQ
+-----------------------*/
+
+.faq-section {
+	background: colors.$alice__blue;
+    .faq-card {
+        @include mixins.margin-padding(0 0 20px, 20px 20px);
+        border: 1px solid colors.$light__gooses;
+        box-shadow: 0px 4px 4px 0px #F1F1F140;
+        border-radius: 5px;
+            @include mixins.respond-below(custom991) {
+                @include mixins.margin-padding(0 0 15px, null);
+            }
+        &:last-child {
+            margin-bottom: 0;
+        }
+        p {     
+            @include mixins.margin-padding(15px 0 0, null);
+        }
+    }
+    .faq-title {
+        font-weight: typography.$bold;
+        font-size: typography.$font__size__18;
+        >a {
+            display: block;
+            position: relative;
+            color: colors.$black-gray;
+            font-size: typography.$font__size__16;
+                @include mixins.respond-below(custom991) {
+                    font-size: typography.$font__size__15;
+                }
+            &:after {
+                font-family: "Fontawesome";
+                content: "\f13a";
+                position: absolute;
+                top: 50%;
+                right: 0;
+                font-size: typography.$font__size__16;
+                color: colors.$note__lights;
+                @include mixins.transform(translateY(-50%));
+                @extend %animation-effect;
+                @include mixins.respond-below(custom767) { 
+                    top: 0px;
+                    right: -20px;
+                }
+            }
+            &:not(.collapsed) {
+                &:after {
+                    content: "\f139";
+                    color: colors.$primarycolor;
+                    @extend %animation-effect;
+                }
+            }
+        }
+    }
+}
+.faq-card {
+        @include mixins.margin-padding(0 0 20px, 20px 40px 20px 20px);
+        border: 1px solid colors.$blue__light;
+        border-radius: 5px;
+            @include mixins.respond-below(custom991) {
+                @include mixins.margin-padding(0 0 15px, null);
+            }
+        &:last-child {
+            margin-bottom: 0;
+        }
+        p {     
+            @include mixins.margin-padding(15px 0 0, null);
+        }
+    }
+    .faq-title {
+        font-weight: typography.$medium;
+        font-size: typography.$font__size__18;
+        >a {
+            display: block;
+            position: relative;
+            color: colors.$black-gray;
+            font-size: typography.$font__size__18;
+                @include mixins.respond-below(custom991) {
+                    font-size: typography.$font__size__15;
+                }
+            &:after {
+                font-family: "Fontawesome";
+                content: "\f13a";
+                position: absolute;
+                top: 50%;
+                right: -15px;
+                font-size: typography.$font__size__16;
+                color: colors.$note__lights;
+                @extend %animation-effect;
+                transform: translateY(-50%);
+                @include mixins.respond-below(custom767) { 
+                    right: -20px;
+                }
+            }
+            &:not(.collapsed) {
+                &:after {
+                    content: "\f139";
+                    color: colors.$primarycolor;
+                    @extend %animation-effect;
+                }
+            }
+        }
+    }
