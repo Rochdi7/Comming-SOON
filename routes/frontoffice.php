@@ -22,12 +22,6 @@ Route::name('front.')->group(function () {
     Route::view('/booking-payment', 'frontoffice.pages.booking-payment')->name('booking-payment');
 });
 
-Route::get('admin/index_admin', [CustomAuthController::class, 'dashboard']); 
-Route::get('admin/signin', [CustomAuthController::class, 'index'])->name('admin/signin');
-Route::post('admin/custom-login', [CustomAuthController::class, 'customLogin'])->name('signin.custom'); 
-Route::get('admin/signup', [CustomAuthController::class, 'registration'])->name('admin/signup');
-Route::post('admin/custom-register', [CustomAuthController::class, 'customRegistration'])->name('signup.custom'); 
-Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 Route::get('/', function () {
     return view('index');

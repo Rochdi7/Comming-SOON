@@ -318,17 +318,15 @@
                         <a href="javascript:void(0);" class="d-flex align-items-center" data-bs-toggle="dropdown"
                             data-bs-auto-close="outside">
                             <span class="avatar avatar-sm">
-                                <img src="{{ auth()->user()->getFirstMediaUrl('avatar') ?: URL::asset('admin_assets/img/profiles/avatar-05.jpg') }}"
-                                    alt="Img" class="img-fluid rounded-circle">
-
+                                <img src="{{ URL::asset('admin_assets/img/profiles/avatar-05.jpg') }}" alt="Img"
+                                    class="img-fluid rounded-circle">
                             </span>
                         </a>
                         <div class="dropdown-menu">
                             <div class="profileset d-flex align-items-center">
                                 <span class="user-img me-2">
-                                    <img src="{{ auth()->user()->getFirstMediaUrl('avatar') ?: URL::asset('admin_assets/img/profiles/avatar-05.jpg') }}"
+                                    <img src="{{ URL::asset('admin_assets/img/profiles/avatar-05.jpg') }}"
                                         alt="">
-
                                 </span>
                                 <div>
                                     <h6 class="fw-semibold mb-1">
@@ -338,14 +336,12 @@
                                         {{ auth()->user()->email }}
                                     </p>
                                 </div>
-
+                                ح
                             </div>
                             <a class="dropdown-item d-flex align-items-center"
-                                href="{{ route('backoffice.profile.edit') }}">
-                                <i class="ti ti-user-edit me-2"></i>
-                                Edit Profile
+                                href="{{ url('admin/profile-setting') }}">
+                                <i class="ti ti-user-edit me-2"></i>Edit Profile
                             </a>
-
                             <a class="dropdown-item d-flex align-items-center" href="{{ url('admin/payments') }}">
                                 <i class="ti ti-credit-card me-2"></i>Payments
                             </a>

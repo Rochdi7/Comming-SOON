@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('city', 100)->nullable();
             $table->string('country', 100)->nullable();
             $table->json('settings')->nullable();
+            $table->string('default_currency', 3)->default('MAD');
+            $table->string('vat_number', 50)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

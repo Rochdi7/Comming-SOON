@@ -26,6 +26,7 @@ return new class extends Migration
             $table->enum('method', ['cash', 'card', 'bank_transfer', 'cheque', 'other']);
             $table->enum('status', ['pending', 'confirmed', 'refunded'])->default('confirmed');
             $table->string('reference', 100)->nullable();
+            $table->string('currency', 3)->default('MAD');
             $table->timestamps();
             $table->softDeletes();
         });

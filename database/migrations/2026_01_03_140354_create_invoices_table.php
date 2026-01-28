@@ -35,6 +35,7 @@ return new class extends Migration
                 ->default('draft');
 
             $table->text('notes')->nullable();
+            $table->string('currency', 3)->default('MAD');
             $table->timestamps();
             $table->softDeletes();
         });

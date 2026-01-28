@@ -26,6 +26,10 @@ return new class extends Migration
             $table->boolean('has_gps')->default(false);
             $table->boolean('has_air_conditioning')->default(true);
             $table->text('notes')->nullable();
+            $table->string('vin', 50)->nullable();
+            $table->enum('fuel_policy', ['full_to_full', 'same_to_same', 'other'])->default('full_to_full');
+            $table->tinyInteger('fuel_level_out')->nullable();
+            $table->tinyInteger('fuel_level_in')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

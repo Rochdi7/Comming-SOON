@@ -2,31 +2,32 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, SoftDeletes, InteractsWithMedia;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
+     * Mass assignable attributes
      */
     protected $fillable = [
+        'agency_id',
         'name',
         'email',
         'password',
+        'phone',
+        'status',
+        'last_login_at',
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
+     * Hidden attributes
      */
     protected $hidden = [
         'password',
@@ -34,15 +35,37 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
+     * Casts
      */
-    protected function casts(): array
+    protected $casts = [
+        'last_login_at' => 'datetime',
+        'password' => 'hashed',
+    ];
+
+    /* =======================
+     |  MEDIA LIBRARY
+     ======================= */
+
+    public function registerMediaCollections(): void
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        $this->addMediaCollection('avatar')
+            ->useDisk('media')   // ✅ force disk media => URL /media/...
+            ->singleFile();      // ✅ un seul avatar
+    }
+
+    // ✅ PAS DE registerMediaConversions() => aucune conversion
+
+    /* =======================
+     |  RELATIONSHIPS
+     ======================= */
+
+    public function agency()
+    {
+        return $this->belongsTo(Agency::class);
+    }
+
+    public function agents()
+    {
+        return $this->hasMany(Agent::class);
     }
 }

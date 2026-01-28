@@ -24,8 +24,12 @@ return new class extends Migration
             $table->decimal('estimated_total', 10, 2)->nullable();
             $table->enum('status', ['pending', 'confirmed', 'cancelled', 'converted'])->default('pending');
             $table->enum('source', ['website', 'mobile', 'backoffice', 'other'])->default('website');
+            $table->dateTime('start_at');
+            $table->dateTime('end_at');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index(['vehicle_id', 'start_at', 'end_at']);
         });
     }
 

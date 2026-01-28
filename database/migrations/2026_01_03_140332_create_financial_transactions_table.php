@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('related_type', 100)->nullable();
             $table->unsignedBigInteger('related_id')->nullable();
             $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
+            $table->string('currency', 3)->default('MAD');
             $table->timestamps();
             $table->softDeletes();
         });

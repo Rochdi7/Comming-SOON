@@ -52,8 +52,18 @@ return new class extends Migration
             $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
             $table->foreignId('updated_by')->nullable()->constrained('users')->nullOnDelete();
 
+            $table->dateTime('start_at');
+            $table->dateTime('end_at')->nullable();
+            $table->dateTime('actual_start_at')->nullable();
+            $table->dateTime('actual_end_at')->nullable();
+            $table->dateTime('cancelled_at')->nullable();
+            $table->string('cancellation_reason', 255)->nullable();
+
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index(['vehicle_id', 'start_at']);
+            $table->index(['vehicle_id', 'end_at']);
         });
     }
 
