@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Permission\Traits\HasRoles;
+
 
 class User extends Authenticatable implements HasMedia
 {
-    use HasFactory, Notifiable, SoftDeletes, InteractsWithMedia;
+    use HasRoles, HasFactory, Notifiable, SoftDeletes, InteractsWithMedia;
 
     /**
      * Mass assignable attributes
@@ -25,6 +27,7 @@ class User extends Authenticatable implements HasMedia
         'status',
         'last_login_at',
     ];
+    protected $guard_name = 'backoffice';
 
     /**
      * Hidden attributes
@@ -68,4 +71,7 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->hasMany(Agent::class);
     }
+
+    
+
 }
