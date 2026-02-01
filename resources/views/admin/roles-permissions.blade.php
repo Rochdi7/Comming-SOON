@@ -231,7 +231,13 @@
                                                                 
                                                                     
                     </tbody>	
+                    
                 </table>
+                @if(method_exists($permissions, 'links'))
+    <div class="d-flex justify-content-end mt-3">
+        {{ $permissions->links() }}
+    </div>
+@endif
             </div>
             <!-- Custom Data Table -->
             <div class="table-footer"></div>			

@@ -10,7 +10,7 @@
                href="javascript:void(0);"
                data-bs-toggle="modal"
                data-bs-target="#edit_agency"
-               data-edit-action="{{ route('backoffice.agencies.update', $agency) }}"
+               data-edit-action="{{ route('Backoffice.agencies.update', $agency) }}"
 
                data-agency-name="{{ $agency->name }}"
                data-agency-legal-name="{{ $agency->legal_name }}"
@@ -37,7 +37,7 @@
                href="javascript:void(0);"
                data-bs-toggle="modal"
                data-bs-target="#delete_agency"
-               data-delete-action="{{ route('backoffice.agencies.destroy', $agency) }}"
+               data-delete-action="{{ route('Backoffice.agencies.destroy', $agency) }}"
                data-agency-name="{{ $agency->name }}">
                 <i class="ti ti-trash me-1"></i>Supprimer
             </a>

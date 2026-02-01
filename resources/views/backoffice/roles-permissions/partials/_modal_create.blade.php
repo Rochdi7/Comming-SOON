@@ -4,7 +4,7 @@ ADD ROLE
 <div class="modal fade" id="add_role">
     <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content">
-            <form method="POST" action="{{ route('backoffice.roles.store') }}" class="needs-validation" novalidate>
+            <form method="POST" action="{{ route('Backoffice.roles.store') }}" class="needs-validation" novalidate>
                 @csrf
 
                 <div class="modal-header">
@@ -62,7 +62,7 @@ ADD PERMISSION
 <div class="modal fade" id="add_permission">
     <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content">
-            <form method="POST" action="{{ route('backoffice.permissions.store') }}" class="needs-validation" novalidate>
+            <form method="POST" action="{{ route('Backoffice.permissions.store') }}" class="needs-validation" novalidate>
                 @csrf
 
                 <div class="modal-header">

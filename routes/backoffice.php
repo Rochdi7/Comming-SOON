@@ -29,7 +29,7 @@ Route::prefix('backoffice')->name('backoffice.')->group(function () {
         Route::get('/login/demo', [AuthController::class, 'demoLogin'])->name('login.demo');
     });
 
-    Route::middleware('auth:backoffice')->group(function () {
+    Route::middleware(['auth:backoffice'])->group(function () {
 
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 

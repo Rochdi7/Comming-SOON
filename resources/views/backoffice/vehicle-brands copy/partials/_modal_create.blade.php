@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content">
 
-            <form class="needs-validation" novalidate action="{{ route('backoffice.vehicle-brands.store') }}"
+            <form class="needs-validation" novalidate action="{{ route('Backoffice.vehicle-brands.store') }}"
                 method="POST" enctype="multipart/form-data">
                 @csrf
 

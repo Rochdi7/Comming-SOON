@@ -9,7 +9,7 @@
                 </button>
             </div>
 
-            <form action="{{ route('backoffice.agencies.store') }}"
+            <form action="{{ route('Backoffice.agencies.store') }}"
                   method="POST"
                   class="needs-validation"
                   novalidate>

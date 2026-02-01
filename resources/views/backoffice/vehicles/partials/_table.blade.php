@@ -133,7 +133,7 @@
                                 {{-- VIEW (optionnel) --}}
                                 <li>
                                     <a class="dropdown-item rounded-1"
-                                        href="{{ route('backoffice.vehicles.show', $vehicle) }}">
+                                        href="{{ route('Backoffice.vehicles.show', $vehicle) }}">
                                         <i class="ti ti-eye me-1"></i>Voir détails
                                     </a>
                                 </li>
@@ -142,7 +142,7 @@
                                 <li>
                                     <a class="dropdown-item rounded-1" href="javascript:void(0);" data-bs-toggle="modal"
                                         data-bs-target="#modal_vehicle_edit"
-                                        data-edit-action="{{ route('backoffice.vehicles.update', $vehicle) }}"
+                                        data-edit-action="{{ route('Backoffice.vehicles.update', $vehicle) }}"
                                         data-vehicle-id="{{ $vehicle->id }}"
                                         data-vehicle-model-id="{{ $vehicle->vehicle_model_id }}"
                                         data-registration-number="{{ $vehicle->registration_number }}"
@@ -166,7 +166,7 @@
                                 <li>
                                     <a class="dropdown-item rounded-1" href="javascript:void(0);" data-bs-toggle="modal"
                                         data-bs-target="#modal_vehicle_delete"
-                                        data-delete-action="{{ route('backoffice.vehicles.destroy', $vehicle) }}"
+                                        data-delete-action="{{ route('Backoffice.vehicles.destroy', $vehicle) }}"
                                         data-delete-name="{{ $carTitle }}">
                                         <i class="ti ti-trash me-1"></i>Supprimer
                                     </a>

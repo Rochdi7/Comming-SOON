@@ -56,7 +56,7 @@
 
                 {{-- Actions (EDIT / DELETE) --}}
                 <td>
-                    @include('backoffice.vehicle-brands.partials._actions', [
+                    @include('Backoffice.vehicle-brands.partials._actions', [
                         'brand' => $brand,
                         'logo' => $logo,
                     ])
