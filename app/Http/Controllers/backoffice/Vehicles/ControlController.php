@@ -24,7 +24,7 @@ class ControlController extends Controller
             ->latest()
             ->paginate(15);
 
-        return view('backoffice.vehicles.controls.index', compact('vehicle', 'controls'));
+        return view('Backoffice.vehicles.controls.index', compact('vehicle', 'controls'));
     }
 
     public function create(Vehicle $vehicle)
@@ -36,7 +36,7 @@ class ControlController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('backoffice.vehicles.controls.create', compact('vehicle', 'users'));
+        return view('Backoffice.vehicles.controls.create', compact('vehicle', 'users'));
     }
 
     public function store(VehicleControlStoreRequest $request, Vehicle $vehicle)
@@ -50,7 +50,7 @@ class ControlController extends Controller
         VehicleControl::create($data);
 
         return redirect()
-            ->route('backoffice.vehicles.controls.index', $vehicle)
+            ->route('Backoffice.vehicles.controls.index', $vehicle)
             ->with('success', 'Contrôle de véhicule créé avec succès.');
     }
 
@@ -59,7 +59,7 @@ class ControlController extends Controller
         $this->authorize('view', $vehicle);
         $this->verifyResource($vehicle, $control);
 
-        return view('backoffice.vehicles.controls.show', compact('vehicle', 'control'));
+        return view('Backoffice.vehicles.controls.show', compact('vehicle', 'control'));
     }
 
     public function edit(Vehicle $vehicle, VehicleControl $control)
@@ -72,7 +72,7 @@ class ControlController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('backoffice.vehicles.controls.edit', compact('vehicle', 'control', 'users'));
+        return view('Backoffice.vehicles.controls.edit', compact('vehicle', 'control', 'users'));
     }
 
     public function update(VehicleControlUpdateRequest $request, Vehicle $vehicle, VehicleControl $control)
@@ -83,7 +83,7 @@ class ControlController extends Controller
         $control->update($request->validated());
 
         return redirect()
-            ->route('backoffice.vehicles.controls.show', [$vehicle, $control])
+            ->route('Backoffice.vehicles.controls.show', [$vehicle, $control])
             ->with('success', 'Contrôle de véhicule mis à jour avec succès.');
     }
 
@@ -95,7 +95,7 @@ class ControlController extends Controller
         $control->delete();
 
         return redirect()
-            ->route('backoffice.vehicles.controls.index', $vehicle)
+            ->route('Backoffice.vehicles.controls.index', $vehicle)
             ->with('success', 'Contrôle de véhicule supprimé.');
     }
 

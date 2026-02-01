@@ -18,28 +18,27 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         $credentials = $request->only('email', 'password');
-        $remember = $request->boolean('remember');
+        $remember    = $request->boolean('remember');
 
-        // ✅ IMPORTANT: clear any previous intended redirect (could be /index)
         $request->session()->forget('url.intended');
 
-        if (!Auth::attempt($credentials, $remember)) {
+        if (! Auth::guard('backoffice')->attempt($credentials, $remember)) {
             return back()->withErrors([
-                'email' => 'Email ou mot de passe incorrect.',
+                'email' => 'Adresse email ou mot de passe incorrect.',
             ])->onlyInput('email');
         }
 
         /** @var User $user */
-        $user = Auth::user();
+        $user = Auth::guard('backoffice')->user();
 
-        // Block inactive/blocked users
         if ($user->status !== 'active') {
-            Auth::logout();
+            Auth::guard('backoffice')->logout();
+
             $request->session()->invalidate();
             $request->session()->regenerateToken();
 
             return back()->withErrors([
-                'email' => 'Votre compte est ' . $user->status . '.',
+                'email' => 'Votre compte est actuellement ' . $user->status . '.',
             ])->onlyInput('email');
         }
 
@@ -49,7 +48,6 @@ class AuthController extends Controller
             'last_login_at' => now(),
         ])->save();
 
-        // ✅ Always go dashboard
         return redirect()->route('backoffice.dashboard');
     }
 
@@ -59,17 +57,17 @@ class AuthController extends Controller
 
         $user = User::where('email', 'admin@agency1.com')->first();
 
-        if (!$user) {
+        if (! $user) {
             return redirect()->route('backoffice.login')
-                ->withErrors(['email' => 'Demo user not found. Run seeder first.']);
+                ->withErrors(['email' => 'Utilisateur de démonstration introuvable. Lancez le seeder.']);
         }
 
         if ($user->status !== 'active') {
             return redirect()->route('backoffice.login')
-                ->withErrors(['email' => 'Demo user is not active.']);
+                ->withErrors(['email' => 'Le compte de démonstration n’est pas actif.']);
         }
 
-        Auth::login($user, true);
+        Auth::guard('backoffice')->login($user, true);
         $request->session()->regenerate();
 
         return redirect()->route('backoffice.dashboard');
@@ -77,7 +75,7 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::logout();
+        Auth::guard('backoffice')->logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();

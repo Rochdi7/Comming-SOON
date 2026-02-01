@@ -25,7 +25,7 @@ class VehicleModelController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('backoffice.vehicle-models.index', compact('models', 'brands'));
+        return view('Backoffice.vehicle-models.index', compact('models', 'brands'));
     }
 
     public function create()
@@ -34,7 +34,7 @@ class VehicleModelController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('backoffice.vehicle-models.create', compact('brands'));
+        return view('Backoffice.vehicle-models.create', compact('brands'));
     }
 
     public function store(VehicleModelStoreRequest $request)
@@ -45,7 +45,7 @@ class VehicleModelController extends Controller
         VehicleModel::create($data);
 
         return redirect()
-            ->route('backoffice.vehicle-models.index')
+            ->route('Backoffice.vehicle-models.index')
             ->with('toast', [
                 'title'   => 'Créé',
                 'message' => 'Modèle de véhicule créé avec succès.',
@@ -61,7 +61,7 @@ class VehicleModelController extends Controller
 
         $vehicleModel->load('brand');
 
-        return view('backoffice.vehicle-models.show', compact('vehicleModel'));
+        return view('Backoffice.vehicle-models.show', compact('vehicleModel'));
     }
 
     public function edit(VehicleModel $vehicleModel)
@@ -72,7 +72,7 @@ class VehicleModelController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('backoffice.vehicle-models.edit', compact('vehicleModel', 'brands'));
+        return view('Backoffice.vehicle-models.edit', compact('vehicleModel', 'brands'));
     }
 
     public function update(VehicleModelUpdateRequest $request, VehicleModel $vehicleModel)
@@ -82,7 +82,7 @@ class VehicleModelController extends Controller
         $vehicleModel->update($request->validated());
 
         return redirect()
-            ->route('backoffice.vehicle-models.index')
+            ->route('Backoffice.vehicle-models.index')
             ->with('toast', [
                 'title'   => 'Mis à jour',
                 'message' => 'Modèle de véhicule mis à jour avec succès.',
@@ -99,7 +99,7 @@ class VehicleModelController extends Controller
         $vehicleModel->delete();
 
         return redirect()
-            ->route('backoffice.vehicle-models.index')
+            ->route('Backoffice.vehicle-models.index')
             ->with('toast', [
                 'title'   => 'Supprimé',
                 'message' => 'Modèle de véhicule supprimé.',

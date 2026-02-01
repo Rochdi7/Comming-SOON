@@ -20,13 +20,13 @@ class InsuranceController extends Controller
             ->latest()
             ->paginate(15);
 
-        return view('backoffice.vehicles.insurances.index', compact('vehicle', 'insurances'));
+        return view('Backoffice.vehicles.insurances.index', compact('vehicle', 'insurances'));
     }
 
     public function create(Vehicle $vehicle)
     {
         $this->authorize('update', $vehicle);
-        return view('backoffice.vehicles.insurances.create', compact('vehicle'));
+        return view('Backoffice.vehicles.insurances.create', compact('vehicle'));
     }
 
     public function store(VehicleInsuranceStoreRequest $request, Vehicle $vehicle)
@@ -51,7 +51,7 @@ class InsuranceController extends Controller
         }
 
         return redirect()
-            ->route('backoffice.vehicles.insurances.index', $vehicle)
+            ->route('Backoffice.vehicles.insurances.index', $vehicle)
             ->with('success', 'Assurance créée avec succès.');
     }
 
@@ -85,7 +85,7 @@ class InsuranceController extends Controller
         }
 
         return redirect()
-            ->route('backoffice.vehicles.insurances.index', $vehicle)
+            ->route('Backoffice.vehicles.insurances.index', $vehicle)
             ->with('success', 'Assurance mise à jour avec succès.');
     }
 
@@ -97,7 +97,7 @@ class InsuranceController extends Controller
         $insurance->delete();
 
         return redirect()
-            ->route('backoffice.vehicles.insurances.index', $vehicle)
+            ->route('Backoffice.vehicles.insurances.index', $vehicle)
             ->with('success', 'Assurance supprimée.');
     }
 

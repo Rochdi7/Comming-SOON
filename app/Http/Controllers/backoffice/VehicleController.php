@@ -21,7 +21,7 @@ class VehicleController extends Controller
             ->latest()
             ->paginate(15);
 
-        return view('backoffice.vehicles.index', compact('vehicles'));
+        return view('Backoffice.vehicles.index', compact('vehicles'));
     }
 
     public function create()
@@ -31,7 +31,7 @@ class VehicleController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('backoffice.vehicles.create', compact('models'));
+        return view('Backoffice.vehicles.create', compact('models'));
     }
 
     public function store(VehicleStoreRequest $request)
@@ -66,7 +66,7 @@ class VehicleController extends Controller
         }
 
         return redirect()
-            ->route('backoffice.vehicles.show', $vehicle)
+            ->route('Backoffice.vehicles.show', $vehicle)
             ->with('success', 'Véhicule créé avec succès.');
     }
 
@@ -76,7 +76,7 @@ class VehicleController extends Controller
 
         $vehicle->load('model.brand');
 
-        return view('backoffice.vehicles.show', compact('vehicle'));
+        return view('Backoffice.vehicles.show', compact('vehicle'));
     }
 
     public function edit(Vehicle $vehicle)
@@ -90,7 +90,7 @@ class VehicleController extends Controller
 
         $vehicle->load('model.brand');
 
-        return view('backoffice.vehicles.edit', compact('vehicle', 'models'));
+        return view('Backoffice.vehicles.edit', compact('vehicle', 'models'));
     }
 
     public function update(VehicleUpdateRequest $request, Vehicle $vehicle)
@@ -125,7 +125,7 @@ class VehicleController extends Controller
         }
 
         return redirect()
-            ->route('backoffice.vehicles.show', $vehicle)
+            ->route('Backoffice.vehicles.show', $vehicle)
             ->with('success', 'Véhicule mis à jour avec succès.');
     }
 
@@ -136,7 +136,7 @@ class VehicleController extends Controller
         $vehicle->delete();
 
         return redirect()
-            ->route('backoffice.vehicles.index')
+            ->route('Backoffice.vehicles.index')
             ->with('success', 'Véhicule supprimé.');
     }
 }

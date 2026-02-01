@@ -9,7 +9,7 @@ class ProfileController extends Controller
 {
     public function edit()
     {
-        return view('backoffice.profile.profile-setting');
+        return view('Backoffice.profile.profile-setting');
     }
 
     public function update(UpdateProfileRequest $request)

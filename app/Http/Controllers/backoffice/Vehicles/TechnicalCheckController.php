@@ -20,13 +20,13 @@ class TechnicalCheckController extends Controller
             ->latest()
             ->paginate(15);
 
-        return view('backoffice.vehicles.technical-checks.index', compact('vehicle', 'technicalChecks'));
+        return view('Backoffice.vehicles.technical-checks.index', compact('vehicle', 'technicalChecks'));
     }
 
     public function create(Vehicle $vehicle)
     {
         $this->authorize('update', $vehicle);
-        return view('backoffice.vehicles.technical-checks.create', compact('vehicle'));
+        return view('Backoffice.vehicles.technical-checks.create', compact('vehicle'));
     }
 
     public function store(VehicleTechnicalCheckStoreRequest $request, Vehicle $vehicle)
@@ -51,7 +51,7 @@ class TechnicalCheckController extends Controller
         }
 
         return redirect()
-            ->route('backoffice.vehicles.technical-checks.index', $vehicle)
+            ->route('Backoffice.vehicles.technical-checks.index', $vehicle)
             ->with('success', 'Visite technique créée avec succès.');
     }
 
@@ -60,7 +60,7 @@ class TechnicalCheckController extends Controller
         $this->authorize('update', $vehicle);
         $this->verifyResource($vehicle, $technicalCheck);
 
-        return view('backoffice.vehicles.technical-checks.edit', compact('vehicle', 'technicalCheck'));
+        return view('Backoffice.vehicles.technical-checks.edit', compact('vehicle', 'technicalCheck'));
     }
 
     public function update(VehicleTechnicalCheckUpdateRequest $request, Vehicle $vehicle, VehicleTechnicalCheck $technicalCheck)
@@ -85,7 +85,7 @@ class TechnicalCheckController extends Controller
         }
 
         return redirect()
-            ->route('backoffice.vehicles.technical-checks.index', $vehicle)
+            ->route('Backoffice.vehicles.technical-checks.index', $vehicle)
             ->with('success', 'Visite technique mise à jour avec succès.');
     }
 
@@ -97,7 +97,7 @@ class TechnicalCheckController extends Controller
         $technicalCheck->delete();
 
         return redirect()
-            ->route('backoffice.vehicles.technical-checks.index', $vehicle)
+            ->route('Backoffice.vehicles.technical-checks.index', $vehicle)
             ->with('success', 'Visite technique supprimée.');
     }
 

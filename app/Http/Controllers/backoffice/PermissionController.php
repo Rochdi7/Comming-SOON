@@ -20,14 +20,14 @@ class PermissionController extends Controller
             $query->where('name', 'like', "%{$search}%");
         }
 
-        $permissions = $query->paginate(20)->withQueryString();
+        $permissions = $query->paginate(200)->withQueryString();
 
-        return view('backoffice.permissions.index', compact('permissions'));
+        return view('Backoffice.permissions.index', compact('permissions'));
     }
 
     public function create()
     {
-        return view('backoffice.permissions.create');
+        return view('Backoffice.permissions.create');
     }
 
     public function store(PermissionStoreRequest $request)
@@ -40,7 +40,7 @@ class PermissionController extends Controller
         ]);
 
         return redirect()
-            ->route('backoffice.roles-permissions.index', ['tab' => 'permissions'])
+            ->route('Backoffice.roles-permissions.index', ['tab' => 'permissions'])
             ->with('toast', [
                 'title'   => 'Création réussie',
                 'message' => "La permission « {$permission->name} » a été créée avec succès.",
@@ -54,14 +54,14 @@ class PermissionController extends Controller
     {
         abort_unless($permission->guard_name === 'backoffice', 404);
 
-        return view('backoffice.permissions.show', compact('permission'));
+        return view('Backoffice.permissions.show', compact('permission'));
     }
 
     public function edit(Permission $permission)
     {
         abort_unless($permission->guard_name === 'backoffice', 404);
 
-        return view('backoffice.permissions.edit', compact('permission'));
+        return view('Backoffice.permissions.edit', compact('permission'));
     }
 
     public function update(PermissionUpdateRequest $request, Permission $permission)
@@ -75,7 +75,7 @@ class PermissionController extends Controller
         ]);
 
         return redirect()
-            ->route('backoffice.roles-permissions.index', ['tab' => 'permissions'])
+            ->route('Backoffice.roles-permissions.index', ['tab' => 'permissions'])
             ->with('toast', [
                 'title'   => 'Modification réussie',
                 'message' => "La permission « {$permission->name} » a été mise à jour avec succès.",
@@ -93,7 +93,7 @@ class PermissionController extends Controller
         $permission->delete();
 
         return redirect()
-            ->route('backoffice.roles-permissions.index', ['tab' => 'permissions'])
+            ->route('Backoffice.roles-permissions.index', ['tab' => 'permissions'])
             ->with('toast', [
                 'title'   => 'Suppression réussie',
                 'message' => "La permission « {$name} » a été supprimée avec succès.",

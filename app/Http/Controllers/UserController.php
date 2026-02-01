@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Agency;
-use App\Http\Requests\UserStoreRequest;
-use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\Backoffice\User\UserStoreRequest;
+use App\Http\Requests\Backoffice\User\UserUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 

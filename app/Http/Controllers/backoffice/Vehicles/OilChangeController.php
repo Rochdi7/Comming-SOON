@@ -20,13 +20,13 @@ class OilChangeController extends Controller
             ->latest()
             ->paginate(15);
 
-        return view('backoffice.vehicles.oil-changes.index', compact('vehicle', 'oilChanges'));
+        return view('Backoffice.vehicles.oil-changes.index', compact('vehicle', 'oilChanges'));
     }
 
     public function create(Vehicle $vehicle)
     {
         $this->authorize('update', $vehicle);
-        return view('backoffice.vehicles.oil-changes.create', compact('vehicle'));
+        return view('Backoffice.vehicles.oil-changes.create', compact('vehicle'));
     }
 
     public function store(VehicleOilChangeStoreRequest $request, Vehicle $vehicle)
@@ -39,7 +39,7 @@ class OilChangeController extends Controller
         VehicleOilChange::create($data);
 
         return redirect()
-            ->route('backoffice.vehicles.oil-changes.index', $vehicle)
+            ->route('Backoffice.vehicles.oil-changes.index', $vehicle)
             ->with('success', 'Vidange d\'huile créée avec succès.');
     }
 
@@ -48,7 +48,7 @@ class OilChangeController extends Controller
         $this->authorize('update', $vehicle);
         $this->verifyResource($vehicle, $oilChange);
 
-        return view('backoffice.vehicles.oil-changes.edit', compact('vehicle', 'oilChange'));
+        return view('Backoffice.vehicles.oil-changes.edit', compact('vehicle', 'oilChange'));
     }
 
     public function update(VehicleOilChangeUpdateRequest $request, Vehicle $vehicle, VehicleOilChange $oilChange)
@@ -59,7 +59,7 @@ class OilChangeController extends Controller
         $oilChange->update($request->validated());
 
         return redirect()
-            ->route('backoffice.vehicles.oil-changes.index', $vehicle)
+            ->route('Backoffice.vehicles.oil-changes.index', $vehicle)
             ->with('success', 'Vidange d\'huile mise à jour avec succès.');
     }
 
@@ -71,7 +71,7 @@ class OilChangeController extends Controller
         $oilChange->delete();
 
         return redirect()
-            ->route('backoffice.vehicles.oil-changes.index', $vehicle)
+            ->route('Backoffice.vehicles.oil-changes.index', $vehicle)
             ->with('success', 'Vidange d\'huile supprimée.');
     }
 

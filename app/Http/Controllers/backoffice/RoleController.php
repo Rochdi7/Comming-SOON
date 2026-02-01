@@ -24,7 +24,7 @@ class RoleController extends Controller
 
         $roles = $query->paginate(15)->withQueryString();
 
-        return view('backoffice.roles.index', compact('roles'));
+        return view('Backoffice.roles.index', compact('roles'));
     }
 
     public function create()
@@ -34,7 +34,7 @@ class RoleController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('backoffice.roles.create', compact('permissions'));
+        return view('Backoffice.roles.create', compact('permissions'));
     }
 
     public function store(RoleStoreRequest $request)
@@ -56,7 +56,7 @@ class RoleController extends Controller
         }
 
         return redirect()
-            ->route('backoffice.roles-permissions.index', ['tab' => 'roles'])
+            ->route('Backoffice.roles-permissions.index', ['tab' => 'roles'])
             ->with('toast', [
                 'title'   => 'Création réussie',
                 'message' => "Le rôle « {$role->name} » a été créé avec succès.",
@@ -72,7 +72,7 @@ class RoleController extends Controller
 
         $role->load('permissions');
 
-        return view('backoffice.roles.show', compact('role'));
+        return view('Backoffice.roles.show', compact('role'));
     }
 
     public function edit(Role $role)
@@ -87,7 +87,7 @@ class RoleController extends Controller
         $role->load('permissions');
         $assigned = $role->permissions->pluck('id')->all();
 
-        return view('backoffice.roles.edit', compact('role', 'permissions', 'assigned'));
+        return view('Backoffice.roles.edit', compact('role', 'permissions', 'assigned'));
     }
 
     public function update(RoleUpdateRequest $request, Role $role)
@@ -108,7 +108,7 @@ class RoleController extends Controller
         $role->syncPermissions($permissions);
 
         return redirect()
-            ->route('backoffice.roles-permissions.index', ['tab' => 'roles'])
+            ->route('Backoffice.roles-permissions.index', ['tab' => 'roles'])
             ->with('toast', [
                 'title'   => 'Modification réussie',
                 'message' => "Le rôle « {$role->name} » a été mis à jour avec succès.",
@@ -136,7 +136,7 @@ class RoleController extends Controller
         $role->delete();
 
         return redirect()
-            ->route('backoffice.roles-permissions.index', ['tab' => 'roles'])
+            ->route('Backoffice.roles-permissions.index', ['tab' => 'roles'])
             ->with('toast', [
                 'title'   => 'Suppression réussie',
                 'message' => "Le rôle « {$name} » a été supprimé avec succès.",

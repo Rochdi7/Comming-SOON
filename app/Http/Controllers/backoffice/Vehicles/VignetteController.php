@@ -21,13 +21,13 @@ class VignetteController extends Controller
             ->latest()
             ->paginate(15);
 
-        return view('backoffice.vehicles.vignettes.index', compact('vehicle', 'vignettes'));
+        return view('Backoffice.vehicles.vignettes.index', compact('vehicle', 'vignettes'));
     }
 
     public function create(Vehicle $vehicle)
     {
         $this->authorize('update', $vehicle);
-        return view('backoffice.vehicles.vignettes.create', compact('vehicle'));
+        return view('Backoffice.vehicles.vignettes.create', compact('vehicle'));
     }
 
     public function store(VehicleVignetteStoreRequest $request, Vehicle $vehicle)
@@ -40,7 +40,7 @@ class VignetteController extends Controller
         VehicleVignette::create($data);
 
         return redirect()
-            ->route('backoffice.vehicles.vignettes.index', $vehicle)
+            ->route('Backoffice.vehicles.vignettes.index', $vehicle)
             ->with('success', 'Vignette créée avec succès.');
     }
 
@@ -49,7 +49,7 @@ class VignetteController extends Controller
         $this->authorize('update', $vehicle);
         $this->verifyResource($vehicle, $vignette);
 
-        return view('backoffice.vehicles.vignettes.edit', compact('vehicle', 'vignette'));
+        return view('Backoffice.vehicles.vignettes.edit', compact('vehicle', 'vignette'));
     }
 
     public function update(VehicleVignetteUpdateRequest $request, Vehicle $vehicle, VehicleVignette $vignette)
@@ -60,7 +60,7 @@ class VignetteController extends Controller
         $vignette->update($request->validated());
 
         return redirect()
-            ->route('backoffice.vehicles.vignettes.index', $vehicle)
+            ->route('Backoffice.vehicles.vignettes.index', $vehicle)
             ->with('success', 'Vignette mise à jour avec succès.');
     }
 
@@ -72,7 +72,7 @@ class VignetteController extends Controller
         $vignette->delete();
 
         return redirect()
-            ->route('backoffice.vehicles.vignettes.index', $vehicle)
+            ->route('Backoffice.vehicles.vignettes.index', $vehicle)
             ->with('success', 'Vignette supprimée.');
     }
 

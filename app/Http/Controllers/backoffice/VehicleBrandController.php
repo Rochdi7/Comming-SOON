@@ -19,12 +19,12 @@ class VehicleBrandController extends Controller
             ->latest()
             ->paginate(15);
 
-        return view('backoffice.vehicle-brands.index', compact('brands'));
+        return view('Backoffice.vehicle-brands.index', compact('brands'));
     }
 
     public function create()
     {
-        return view('backoffice.vehicle-brands.create');
+        return view('Backoffice.vehicle-brands.create');
     }
 
     public function store(VehicleBrandStoreRequest $request)
@@ -46,7 +46,7 @@ class VehicleBrandController extends Controller
         }
 
         return redirect()
-            ->route('backoffice.vehicle-brands.index')
+            ->route('Backoffice.vehicle-brands.index')
             ->with('toast', [
                 'title'   => 'Created',
                 'message' => 'Marque de véhicule créée avec succès.',
@@ -59,13 +59,13 @@ class VehicleBrandController extends Controller
     public function show(VehicleBrand $vehicleBrand)
     {
         $this->authorize('view', $vehicleBrand);
-        return view('backoffice.vehicle-brands.show', compact('vehicleBrand'));
+        return view('Backoffice.vehicle-brands.show', compact('vehicleBrand'));
     }
 
     public function edit(VehicleBrand $vehicleBrand)
     {
         $this->authorize('update', $vehicleBrand);
-        return view('backoffice.vehicle-brands.edit', compact('vehicleBrand'));
+        return view('Backoffice.vehicle-brands.edit', compact('vehicleBrand'));
     }
 
     public function update(VehicleBrandUpdateRequest $request, VehicleBrand $vehicleBrand)
@@ -89,7 +89,7 @@ class VehicleBrandController extends Controller
         }
 
         return redirect()
-            ->route('backoffice.vehicle-brands.index')
+            ->route('Backoffice.vehicle-brands.index')
             ->with('toast', [
                 'title'   => 'Updated',
                 'message' => 'Marque de véhicule mise à jour avec succès.',
@@ -106,7 +106,7 @@ class VehicleBrandController extends Controller
         $vehicleBrand->delete();
 
         return redirect()
-            ->route('backoffice.vehicle-brands.index')
+            ->route('Backoffice.vehicle-brands.index')
             ->with('toast', [
                 'title'   => 'Deleted',
                 'message' => 'Marque de véhicule supprimée.',

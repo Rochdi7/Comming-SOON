@@ -21,7 +21,7 @@ class ControlItemController extends Controller
 
         $items = $control->items()->get();
 
-        return view('backoffice.vehicles.controls.items.index', compact('vehicle', 'control', 'items'));
+        return view('Backoffice.vehicles.controls.items.index', compact('vehicle', 'control', 'items'));
     }
 
     public function create(Vehicle $vehicle, VehicleControl $control)
@@ -29,7 +29,7 @@ class ControlItemController extends Controller
         $this->authorize('update', $vehicle);
         $this->verifyControl($vehicle, $control);
 
-        return view('backoffice.vehicles.controls.items.create', compact('vehicle', 'control'));
+        return view('Backoffice.vehicles.controls.items.create', compact('vehicle', 'control'));
     }
 
     public function store(VehicleControlItemStoreRequest $request, Vehicle $vehicle, VehicleControl $control)
@@ -43,7 +43,7 @@ class ControlItemController extends Controller
         VehicleControlItem::create($data);
 
         return redirect()
-            ->route('backoffice.vehicles.controls.items.index', [$vehicle, $control])
+            ->route('Backoffice.vehicles.controls.items.index', [$vehicle, $control])
             ->with('success', 'Élément de contrôle créé avec succès.');
     }
 
@@ -53,7 +53,7 @@ class ControlItemController extends Controller
         $this->verifyControl($vehicle, $control);
         $this->verifyItem($control, $item);
 
-        return view('backoffice.vehicles.controls.items.edit', compact('vehicle', 'control', 'item'));
+        return view('Backoffice.vehicles.controls.items.edit', compact('vehicle', 'control', 'item'));
     }
 
     public function update(VehicleControlItemUpdateRequest $request, Vehicle $vehicle, VehicleControl $control, VehicleControlItem $item)
@@ -65,7 +65,7 @@ class ControlItemController extends Controller
         $item->update($request->validated());
 
         return redirect()
-            ->route('backoffice.vehicles.controls.items.index', [$vehicle, $control])
+            ->route('Backoffice.vehicles.controls.items.index', [$vehicle, $control])
             ->with('success', 'Élément de contrôle mis à jour avec succès.');
     }
 
@@ -78,7 +78,7 @@ class ControlItemController extends Controller
         $item->delete();
 
         return redirect()
-            ->route('backoffice.vehicles.controls.items.index', [$vehicle, $control])
+            ->route('Backoffice.vehicles.controls.items.index', [$vehicle, $control])
             ->with('success', 'Élément de contrôle supprimé.');
     }
 
