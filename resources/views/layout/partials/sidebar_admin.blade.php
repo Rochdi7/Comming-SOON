@@ -111,16 +111,7 @@
                                         </a>
                                     </li>
 
-                                    <li><a href="{{ url('admin/types') }}">Types</a></li>
-                                    <li><a href="{{ url('admin/transmissions') }}">Transmissions</a></li>
-                                    <li><a href="{{ url('admin/fuel') }}">Fuels</a></li>
-                                    <li><a href="{{ url('admin/color') }}">Colors</a></li>
-                                    <li><a href="{{ url('admin/steering') }}">Steering</a></li>
-                                    <li><a href="{{ url('admin/seats') }}">Seats</a></li>
-                                    <li><a href="{{ url('admin/cylinders') }}">Cylinders</a></li>
-                                    <li><a href="{{ url('admin/doors') }}">Doors</a></li>
-                                    <li><a href="{{ url('admin/features') }}">Features</a></li>
-                                    <li><a href="{{ url('admin/safety-features') }}">Safety Features</a></li>
+                                    
                                 </ul>
                             </li>
                         @endrole
